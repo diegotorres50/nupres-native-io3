@@ -1,0 +1,8 @@
+{
+  "name": "nupres-native-io3",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
