@@ -6,12 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
 import { AboutPage } from '../pages/about/about';
-import { AccountPage } from '../pages/account/account';
-import { MapPage } from '../pages/map/map';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { SupportPage } from '../pages/support/support';
+import { CalculatorPage } from '../pages/calculator/calculator';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -39,22 +36,10 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Calculadoras', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calculator' },
-    { title: 'Contactenos', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 1, icon: 'mail-open' },
-    { title: 'Nosotros', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 2, icon: 'information-circle' }
-  ];
-  loggedInPages: PageInterface[] = [
-    { title: 'Cuenta', name: 'AccountPage', component: AccountPage, icon: 'person' },
-    { title: 'Calculadoras', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    { title: 'Salir', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
+    { title: 'Calculadoras', name: 'TabsPage', component: TabsPage, tabComponent: CalculatorPage, index: 0, icon: 'calculator' },
+    { title: 'Nosotros', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 1, icon: 'information-circle' }
   ];
 
-  /*
-  loggedOutPages: PageInterface[] = [
-    { title: 'Ingresar', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
-    { title: 'Soporte', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    { title: 'Registrar', name: 'SignupPage', component: SignupPage, icon: 'person-add' }
-  ];*/
   rootPage: any;
 
   constructor(
