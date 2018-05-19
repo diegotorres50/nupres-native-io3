@@ -15,15 +15,56 @@
 
 <ion-content padding>
 
+<ion-card>
+  <ion-card-header>
+    Antropometria
+  </ion-card-header>
+  <ion-card-content>
+    Calculadora especificamente de antropometria para nutricion.
+  </ion-card-content>
+</ion-card>
+
+
+
     <form>
+
+
+
+  <ion-item>
+    <ion-label>Sexo</ion-label>
+    <ion-select>
+      <ion-option value="woman">Mujer</ion-option>
+      <ion-option value="man">Hombre</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+
+
       <ion-item>
-        <ion-label>Todo</ion-label>
-        <ion-input type="text" name="title"></ion-input>
+        <ion-label>Edad</ion-label>
+        <ion-input type="text" name="age"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Description</ion-label>
-        <ion-textarea name="description"></ion-textarea>
+        <ion-label>Peso Actual</ion-label>
+        <ion-input type="text" name="peso_actual"></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label>Peso Usual</ion-label>
+        <ion-input type="text" name="peso_usual"></ion-input>
+      </ion-item>   
+
+      <ion-item>
+        <ion-label>Talla</ion-label>
+        <ion-input type="text" name="talla"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Circunferencia de carpo</ion-label>
+        <ion-input type="text" name="carpo"></ion-input>
+      </ion-item>      
+
       <button ion-button type="submit" block>Calcular</button>
     </form>
 
