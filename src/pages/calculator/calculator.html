@@ -15,57 +15,87 @@
 
 <ion-content padding>
 
-<ion-card>
-  <ion-card-header>
-    Antropometria
-  </ion-card-header>
-  <ion-card-content>
-    Calculadora especificamente de antropometria para nutricion.
-  </ion-card-content>
-</ion-card>
-
-
+    <ion-card>
+        <ion-card-header>
+            Antropometria
+        </ion-card-header>
+        <ion-card-content>
+            Calculadora especificamente de antropometria para nutricion.
+        </ion-card-content>
+    </ion-card>
 
     <form>
 
+        <ion-item>
+            <ion-label color="primary" floating>Genero</ion-label>
+            <ion-select>
+                <ion-option value="woman">Mujer</ion-option>
+                <ion-option value="man">Hombre</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Edad</ion-label>
+            <ion-input type="number" name="age" max="100" required min="0" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Peso Actual</ion-label>
+            <ion-input type="number" name="peso_actual" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Peso Usual</ion-label>
+            <ion-input type="number" name="peso_usual" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Talla (centímetros)</ion-label>
+            <ion-input type="number" name="talla" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Circunferencia de carpo</ion-label>
+            <ion-input type="number" name="carpo" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Pliegue cutáneo de tríceps</ion-label>
+            <ion-input type="number" name="triceps"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Circunferencia de brazo</ion-label>
+            <ion-input type="number" name="brazo" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Circunferencia de pantorrilla</ion-label>
+            <ion-input type="number" name="pantorrilla" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Albumina en suero</ion-label>
+            <ion-input type="number" name="albumina"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" floating>Cintura en (en centímetros)</ion-label>
+            <ion-input type="number" name="cintura" pattern="[0-9]*"></ion-input>
+        </ion-item>
 
 
-  <ion-item>
-    <ion-label>Sexo</ion-label>
-    <ion-select>
-      <ion-option value="woman">Mujer</ion-option>
-      <ion-option value="man">Hombre</ion-option>
-    </ion-select>
-  </ion-item>
 
 
 
 
-      <ion-item>
-        <ion-label>Edad</ion-label>
-        <ion-input type="text" name="age"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Peso Actual</ion-label>
-        <ion-input type="text" name="peso_actual"></ion-input>
-      </ion-item>
 
-      <ion-item>
-        <ion-label>Peso Usual</ion-label>
-        <ion-input type="text" name="peso_usual"></ion-input>
-      </ion-item>   
 
-      <ion-item>
-        <ion-label>Talla</ion-label>
-        <ion-input type="text" name="talla"></ion-input>
-      </ion-item>
 
-      <ion-item>
-        <ion-label>Circunferencia de carpo</ion-label>
-        <ion-input type="text" name="carpo"></ion-input>
-      </ion-item>      
 
-      <button ion-button type="submit" block>Calcular</button>
+
+        <button ion-button type="submit" block>Calcular</button>
+
     </form>
 
 
