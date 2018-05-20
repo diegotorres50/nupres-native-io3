@@ -1,0 +1,44 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-buttons *ngIf="showSkip">
+      <button ion-button (click)="startApp()" color="primary">Omitir</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
+
+    <ion-slide>
+      <img src="assets/imgs/logo-nupres-1.png" class="slide-image"/>
+      <h2 class="slide-title">
+        Bienvenido a <b>Nupres</b>
+      </h2>
+      <p>
+        El <b>primer software para soporte nutricional</b> que apoyara los procesos de gestión con el paciente crítico.
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/imgs/nurse-group.png" class="slide-image"/>
+      <h2 class="slide-title" >Qué es Nupres?</h2>
+      <p><b>Nupres</b> es una herramienta de apoyo operativo y gerencial del sector salud.</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/imgs/patient-with-doctor.png" class="slide-image"/>
+      <h2 class="slide-title">Puedo hacer calculos nutricionales?</h2>
+      <p><b>Nupres</b> apoya las decisiones del profesional mediante una serie de calculadoras.</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/imgs/hand-with-cell.png" class="slide-image"/>
+      <h2 class="slide-title">Listos para iniciar?</h2>
+      <button ion-button icon-end large clear (click)="startApp()">
+        Continuar
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>
