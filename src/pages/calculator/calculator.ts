@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { CalculatorModalPage } from '../calculator-modal/calculator-modal';
 
 /**
  * Generated class for the CalculatorPage page.
@@ -15,7 +17,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CalculatorPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  }
+
+  openModal() {
+    let myModal = this.modalCtrl.create(CalculatorModalPage);
+    myModal.present();
   }
 
   ionViewDidLoad() {
