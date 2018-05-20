@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
 import { CalculatorPage } from '../pages/calculator/calculator';
 import { TabsPage } from '../pages/tabs/tabs';
+import { CalculatorModalPage } from '../pages/calculator-modal/calculator-modal';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     AboutPage,
     CalculatorPage,
-    TabsPage
+    TabsPage,
+    CalculatorModalPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     AboutPage,
     CalculatorPage,
-    TabsPage    
+    TabsPage,
+    CalculatorModalPage
   ],
   providers: [
     StatusBar,
