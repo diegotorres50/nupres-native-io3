@@ -17,81 +17,77 @@
 
     <ion-card>
         <ion-card-header>
-            Antropometria
+            <strong>Antropometria</strong>
         </ion-card-header>
         <ion-card-content>
-            Calculadora especificamente de antropometria para nutricion.
+            Por favor indique los siguientes datos en el formulario.
         </ion-card-content>
     </ion-card>
 
     <form>
 
         <ion-item>
-            <ion-label color="primary" floating>Genero</ion-label>
-            <ion-select>
+            <ion-label color="primary" stacked>Genero</ion-label>
+            <ion-select placeholder="Indique el sexo aquí">
                 <ion-option value="woman">Mujer</ion-option>
                 <ion-option value="man">Hombre</ion-option>
             </ion-select>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Edad</ion-label>
-            <ion-input type="number" name="age" max="100" required min="0" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Edad</ion-label>
+            <ion-input placeholder="Indique la edad aquí" type="number" name="age" max="100" required min="0" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Peso Actual</ion-label>
-            <ion-input type="number" name="peso_actual" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Peso Actual</ion-label>
+            <ion-input placeholder="Indique el peso actual aquí" type="number" name="peso_actual" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Peso Usual</ion-label>
-            <ion-input type="number" name="peso_usual" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Peso Usual</ion-label>
+            <ion-input placeholder="Indique el peso usual aquí" type="number" name="peso_usual" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Talla (centímetros)</ion-label>
-            <ion-input type="number" name="talla" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Talla (centímetros)</ion-label>
+            <ion-input placeholder="Indique la talla aquí" type="number" name="talla" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Circunferencia de carpo</ion-label>
-            <ion-input type="number" name="carpo" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Circunferencia de carpo</ion-label>
+            <ion-input placeholder="Indique el carpo aquí" type="number" name="carpo" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Pliegue cutáneo de tríceps</ion-label>
-            <ion-input type="number" name="triceps"></ion-input>
+            <ion-label color="primary" stacked>Pliegue cutáneo de tríceps</ion-label>
+            <ion-input placeholder="Indique triceps aquí" type="number" name="triceps"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Circunferencia de brazo</ion-label>
-            <ion-input type="number" name="brazo" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Circunferencia de brazo</ion-label>
+            <ion-input placeholder="Indique brazo aquí" type="number" name="brazo" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Circunferencia de pantorrilla</ion-label>
-            <ion-input type="number" name="pantorrilla" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Altura de rodilla</ion-label>
+            <ion-input placeholder="Indique rodilla aquí" type="number" name="rodilla" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Albumina en suero</ion-label>
-            <ion-input type="number" name="albumina"></ion-input>
+            <ion-label color="primary" stacked>Circunferencia de pantorrilla</ion-label>
+            <ion-input placeholder="Indique pantorrilla aquí" type="number" name="pantorrilla" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" floating>Cintura en (en centímetros)</ion-label>
-            <ion-input type="number" name="cintura" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Albumina en suero</ion-label>
+            <ion-input placeholder="Indique albumina aquí" type="number" name="albumina"></ion-input>
         </ion-item>
 
-
-
-
-
-
-
-
-
+        <ion-item>
+            <ion-label color="primary" stacked>Cintura en (en centímetros)</ion-label>
+            <ion-input placeholder="Indique cintura aquí" type="number" name="cintura" pattern="[0-9]*"></ion-input>
+        </ion-item>
 
 
         <button ion-button type="submit" block>Calcular</button>
