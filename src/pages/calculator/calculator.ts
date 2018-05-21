@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { CalculatorModalPage } from '../calculator-modal/calculator-modal';
 import { LoadingController } from 'ionic-angular';
+import { CalculatorProvider } from '../../providers/calculator/calculator';
 
 /**
  * Generated class for the CalculatorPage page.
@@ -20,13 +21,25 @@ export class CalculatorPage {
 
   model = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public loadingCtrl: LoadingController, public calculatorPro: CalculatorProvider) {
   }
 
   openModal() {
+    //this.validateData();
+
+    // Hacemos calculos
+    this.calculatorPro.obtenerResultados(this.model);
+
+    /*
+    const newCredentials: CredentialModel = {
+        username: this.username,
+        password: this.password,
+        factory: this.factory
+    };*/
+
     let loader = this.loadingCtrl.create({
       content: "Calculando formulas...",
-      duration: 3000
+      duration: 1000
     });
 
     loader.present();
@@ -35,7 +48,7 @@ export class CalculatorPage {
 
     setTimeout(() => {
       myModal.present();
-    }, 3000);
+    }, 1000);
 
   }
 
@@ -45,5 +58,11 @@ export class CalculatorPage {
 
   sendData(){
     console.log(this.model);
-  }  
+  }
+
+  /*validateData() {
+    if (!isNaN(this.model.peso_actual)) {
+        console.log('Falta el peso actual!!!');
+    }
+  }*/
 }

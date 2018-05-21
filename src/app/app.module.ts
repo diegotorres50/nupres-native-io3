@@ -12,6 +12,7 @@ import { CalculatorPage } from '../pages/calculator/calculator';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CalculatorModalPage } from '../pages/calculator-modal/calculator-modal';
 import { IntroPage } from '../pages/intro/intro';
+import { CalculatorProvider } from '../providers/calculator/calculator';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { IntroPage } from '../pages/intro/intro';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CalculatorProvider
   ]
 })
 export class AppModule {}
