@@ -28,7 +28,7 @@ export class CalculatorPage {
     //this.validateData();
 
     // Hacemos calculos
-    this.calculatorPro.obtenerResultados(this.model);
+    let _resultados = this.calculatorPro.obtenerResultados(this.model);
 
     /*
     const newCredentials: CredentialModel = {
@@ -44,7 +44,7 @@ export class CalculatorPage {
 
     loader.present();
 
-    let myModal = this.modalCtrl.create(CalculatorModalPage);
+    let myModal = this.modalCtrl.create(CalculatorModalPage, _resultados);
 
     setTimeout(() => {
       myModal.present();
