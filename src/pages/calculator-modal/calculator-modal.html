@@ -20,7 +20,7 @@
 	    <strong>Indice de Masa Corporal</strong>
 	  </ion-card-header>
 	  <ion-card-content>
-	    <strong>IMC</strong> = Peso / (Talla * Talla) = {{imc}}
+	    <strong>IMC</strong> = Peso / ((Talla / 100) * (Talla / 100)) = <strong>{{imc | number : '1.2-2'}}</strong>
 	  </ion-card-content>
 	</ion-card>
 
