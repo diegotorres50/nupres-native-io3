@@ -17,8 +17,9 @@ import { ViewController } from 'ionic-angular';
 export class CalculatorModalPage {
 
    imc = 0;
-
    ppp = 0;
+   ec_valor = 0;
+   ec_nombre = 'no identificado';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -30,6 +31,8 @@ export class CalculatorModalPage {
   ionViewDidLoad() {
     this.imc = this.navParams.get('imc');
     this.ppp = this.navParams.get('ppp');
+    this.ec_valor = this.navParams.get('ec_valor');
+    this.ec_nombre = this.navParams.get('ec_nombre');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 
