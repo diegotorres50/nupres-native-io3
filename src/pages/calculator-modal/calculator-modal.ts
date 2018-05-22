@@ -24,6 +24,8 @@ export class CalculatorModalPage {
    ec_nombre = 'no identificado';
    pieo = 0;
 
+   msg = '';
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -45,7 +47,13 @@ export class CalculatorModalPage {
   }
 
 whatsappShare(){
-   this.socialSharing.shareViaWhatsApp('Esto es una prueba desde Nupres', null, null);
+   let msg = 'Resultados Calculadora Nupres \n\n Antropologia del paciente: \n\n';
+   msg = msg.concat('Indice de Masa Corporal: ' + this.imc + '\n');
+   msg = msg.concat('Porcentaje de Perdida de Peso: ' + this.ppp + '\n');
+   msg = msg.concat('Estructura Corporal: ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
+   msg = msg.concat('Peso Ideal: ' + this.pieo + '\n\n');
+   msg = msg.concat('¡¡¡Descargue Nupres APP!!!');
+   this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
 
 }
