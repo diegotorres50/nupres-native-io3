@@ -20,6 +20,7 @@ export class CalculatorModalPage {
    ppp = 0;
    ec_valor = 0;
    ec_nombre = 'no identificado';
+   pieo = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -33,6 +34,7 @@ export class CalculatorModalPage {
     this.ppp = this.navParams.get('ppp');
     this.ec_valor = this.navParams.get('ec_valor');
     this.ec_nombre = this.navParams.get('ec_nombre');
+    this.pieo = this.navParams.get('pieo');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 

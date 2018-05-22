@@ -13,7 +13,8 @@ export class CalculatorProvider {
         imc: 0,
         ppp: 0,
         ec_valor: 0,
-        ec_nombre: ''
+        ec_nombre: '',
+        pieo: 0
   }
 
   constructor() {
@@ -30,28 +31,34 @@ export class CalculatorProvider {
     if (data.genero == "hombre") {
         if (parseFloat(this.results.ec_valor) > parseFloat("10.4")) {
             this.results.ec_nombre = "Pequeña";
+            this.results.pieo = ((data.talla / 100) * parseFloat("20"));
         }
 
         if (parseFloat(this.results.ec_valor) >= parseFloat("9.6") && parseFloat(this.results.ec_valor) <= parseFloat("10.4")) {
             this.results.ec_nombre = "Mediana";
+            this.results.pieo = ((data.talla / 100) * parseFloat("22.5"));
         }
 
         if (parseFloat(this.results.ec_valor) < parseFloat("9.6")) {
             this.results.ec_nombre = "Grande";
+            this.results.pieo = ((data.talla / 100) * parseFloat("25"));
         }
     }
 
     if (data.genero == "mujer") {
         if (parseFloat(this.results.ec_valor) > parseFloat("11")) {
             this.results.ec_nombre = "Pequeña";
+            this.results.pieo = ((data.talla / 100) * parseFloat("20"));
         }
 
         if (parseFloat(this.results.ec_valor) >= parseFloat("10.1") && parseFloat(this.results.ec_valor) <= parseFloat("11.0")) {
             this.results.ec_nombre = "Mediana";
+            this.results.pieo = ((data.talla / 100) * parseFloat("22.5"));
         }
 
         if (parseFloat(this.results.ec_valor) < parseFloat("10.0")) {
             this.results.ec_nombre = "Grande";
+            this.results.pieo = ((data.talla / 100) * parseFloat("25"));
         }
     }
 
