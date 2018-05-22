@@ -43,13 +43,23 @@
             </ion-col>
           </ion-row>
 
-        <ion-item>
-            <ion-label color="primary" stacked>Edad</ion-label>
-            <ion-input formControlName="edad" #edad placeholder="Indique la edad aquí, ejemplo: 35" type="number" name="edad" max="100" required edad min="0" pattern="[0-9]*"></ion-input>
+        <ion-item *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty">
+          <ion-label color="genero" *ngIf="myForm.get('edad').hasError('required')">Entonces sos gay</ion-label>
         </ion-item>
 
+        <ion-item>
+            <ion-label color="primary" stacked>Edad</ion-label>
+            <ion-input formControlName="edad" #edad placeholder="Indique la edad aquí, ejemplo: 35" type="number" name="edad" max="100" edad min="0" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+        <!--
         <ion-item *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty">
           <p color="danger" ion-text *ngIf="myForm.get('edad').hasError('required')">La edad es requerida</p>
+        </ion-item> -->
+
+        <ion-item *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('edad').hasError('minlength')">Se embobo o que</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('edad').hasError('maxlength')">No puede ser tan cucho</ion-label>
         </ion-item>
 
         <ion-item>

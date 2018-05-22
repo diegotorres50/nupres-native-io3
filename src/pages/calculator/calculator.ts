@@ -59,18 +59,18 @@ export class CalculatorPage {
 
   private createMyForm(){
     return this.formBuilder.group({
-      genero: ['', Validators.required],
-      edad: ['', Validators.required],
-      peso_actual: ['', Validators.required],
-      peso_usual: ['', Validators.required],
-      talla: ['', Validators.required],
-      carpo: ['', Validators.required],
-      triceps: ['', Validators.required],
-      brazo: ['', Validators.required],
-      rodilla: ['', Validators.required],
-      pantorrilla: ['', Validators.required],
-      albumina: ['', Validators.required],
-      cintura: ['', Validators.required],
+      genero: ['', [Validators.required]],
+      edad: ['', [Validators.minLength(0), Validators.maxLength(100)]],
+      peso_actual: [''],
+      peso_usual: [''],
+      talla: [''],
+      carpo: [''],
+      triceps: [''],
+      brazo: [''],
+      rodilla: [''],
+      pantorrilla: [''],
+      albumina: [''],
+      cintura: [''],
       amputacion: this.formBuilder.group({
         amputaciones: [''],
         bilateral: ['']
