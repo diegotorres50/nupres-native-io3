@@ -102,6 +102,27 @@
             <ion-input formControlName="cintura" #cintura placeholder="Indique cintura aquí" type="number" name="cintura" pattern="[0-9]*" step="0.01"></ion-input>
         </ion-item>
 
+    <div formGroupName="amputacion">
+
+        <ion-item>
+            <ion-label color="primary" stacked>Miembro amputado</ion-label>
+            <ion-select placeholder="Indique si hay miembro amputado" multiple="true"formControlName="amputaciones" #amputaciones name="amputaciones">
+                <ion-option value="1">Mano</ion-option>
+                <ion-option value="2">Antebrazo</ion-option>
+                <ion-option value="3">Brazo hasta el hombro</ion-option>
+                <ion-option value="4">Pie</ion-option>
+                <ion-option value="5">Pierna debajo de la rodilla</ion-option>
+                <ion-option value="6">Pierna por encima de la rodilla</ion-option>
+                <ion-option value="7">Pierna entera</ion-option>
+            </ion-select>
+        </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" stacked>¿Amputación bilateral?</ion-label>
+            <ion-toggle formControlName="bilateral" #bilateral name="bilateral"></ion-toggle>
+          </ion-item>
+
+        </div>
 
         <button ion-button block type="submit" [disabled]="!myForm.valid">Calcular</button>
 
