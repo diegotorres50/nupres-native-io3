@@ -18,6 +18,8 @@ export class CalculatorModalPage {
 
    imc = 0;
 
+   ppp = 0;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
@@ -26,10 +28,9 @@ export class CalculatorModalPage {
   }
 
   ionViewDidLoad() {
-    console.log(this.imc);
     this.imc = this.navParams.get('imc');
+    this.ppp = this.navParams.get('ppp');
     console.log('ionViewDidLoad CalculatorModalPage');
-    console.log(this.imc);
   }
 
 }
