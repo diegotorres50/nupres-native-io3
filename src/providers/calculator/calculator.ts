@@ -19,8 +19,8 @@ export class CalculatorProvider {
 
   obtenerResultados(data: any) {
     console.log(data);
-    console.log('Intentando hacer el calculo: ' + (data.peso_actual / (data.talla * data.talla)));
-    this.results.imc = data.peso_actual / (data.talla * data.talla);
+    console.log('Intentando hacer el calculo: ' + (data.peso_actual / ((data.talla / 100) * (data.talla / 100))));
+    this.results.imc = (data.peso_actual / ((data.talla / 100) * (data.talla / 100)));
     console.log(this.results);
     return (this.results);
   }
