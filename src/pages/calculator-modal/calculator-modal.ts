@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
+//library for social-sharing
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
  * Generated class for the CalculatorModalPage page.
@@ -22,7 +24,11 @@ export class CalculatorModalPage {
    ec_nombre = 'no identificado';
    pieo = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    private socialSharing: SocialSharing) {
   }
 
   closeModal() {
@@ -37,5 +43,9 @@ export class CalculatorModalPage {
     this.pieo = this.navParams.get('pieo');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
+
+whatsappShare(){
+   this.socialSharing.shareViaWhatsApp('Esto es una prueba desde Nupres', null, null);
+ }
 
 }
