@@ -16,7 +16,7 @@ import { ViewController } from 'ionic-angular';
 })
 export class CalculatorModalPage {
 
-   imc: numeric = 0;
+   imc = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
