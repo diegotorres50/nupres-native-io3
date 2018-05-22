@@ -11,7 +11,9 @@ export class CalculatorProvider {
 
   results: any = {
         imc: 0,
-        ppp: 0
+        ppp: 0,
+        ec_valor: 0,
+        ec_nombre: ''
   }
 
   constructor() {
@@ -23,6 +25,36 @@ export class CalculatorProvider {
     console.log('Intentando hacer el calculo...');
     this.results.imc = (data.peso_actual / ((data.talla / 100) * (data.talla / 100)));
     this.results.ppp = (((data.peso_usual - data.peso_actual) * 100 ) / data.peso_actual);
+    this.results.ec_valor = ((data.talla * 100) / data.carpo);
+
+    if (data.genero == "hombre") {
+        if (parseFloat(this.results.ec_valor) > parseFloat("10.4")) {
+            this.results.ec_nombre = "Pequeña";
+        }
+
+        if (parseFloat(this.results.ec_valor) >= parseFloat("9.6") && parseFloat(this.results.ec_valor) <= parseFloat("10.4")) {
+            this.results.ec_nombre = "Mediana";
+        }
+
+        if (parseFloat(this.results.ec_valor) < parseFloat("9.6")) {
+            this.results.ec_nombre = "Grande";
+        }
+    }
+
+    if (data.genero == "mujer") {
+        if (parseFloat(this.results.ec_valor) > parseFloat("11")) {
+            this.results.ec_nombre = "Pequeña";
+        }
+
+        if (parseFloat(this.results.ec_valor) >= parseFloat("10.1") && parseFloat(this.results.ec_valor) <= parseFloat("11.0")) {
+            this.results.ec_nombre = "Mediana";
+        }
+
+        if (parseFloat(this.results.ec_valor) < parseFloat("10.0")) {
+            this.results.ec_nombre = "Grande";
+        }
+    }
+
     console.log(this.results);
 
     return (this.results);
