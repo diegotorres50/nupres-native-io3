@@ -70,7 +70,11 @@ export class CalculatorPage {
       rodilla: ['', Validators.required],
       pantorrilla: ['', Validators.required],
       albumina: ['', Validators.required],
-      cintura: ['', Validators.required]
+      cintura: ['', Validators.required],
+      amputacion: this.formBuilder.group({
+        amputaciones: [''],
+        bilateral: ['']
+      }),
     });
   }
 
