@@ -26,13 +26,22 @@
 
     <form (ngSubmit)="sendData()">
 
-        <ion-item>
-            <ion-label color="primary" stacked>Genero</ion-label>
-            <ion-select placeholder="Indique el sexo aquí">
-                <ion-option value="woman">Mujer</ion-option>
-                <ion-option value="man">Hombre</ion-option>
-            </ion-select>
-        </ion-item>
+          <ion-row radio-group>
+            <ion-col>
+              <ion-item>
+                <ion-icon name="woman" item-start></ion-icon>
+                <ion-label color="primary">Mujer</ion-label>
+                <ion-radio value="2"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-icon name="man" item-start></ion-icon>
+                <ion-label color="primary">Hombre</ion-label>
+                <ion-radio value="1"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
 
         <ion-item>
             <ion-label color="primary" stacked>Edad</ion-label>
