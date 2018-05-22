@@ -4,6 +4,7 @@ import { ModalController } from 'ionic-angular';
 import { CalculatorModalPage } from '../calculator-modal/calculator-modal';
 import { LoadingController } from 'ionic-angular';
 import { CalculatorProvider } from '../../providers/calculator/calculator';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /**
  * Generated class for the CalculatorPage page.
@@ -19,16 +20,30 @@ import { CalculatorProvider } from '../../providers/calculator/calculator';
 })
 export class CalculatorPage {
 
-  model = {};
+  myForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public loadingCtrl: LoadingController, public calculatorPro: CalculatorProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController,
+    public calculatorPro: CalculatorProvider,
+    public formBuilder: FormBuilder
+    ) {
+    this.myForm = this.createMyForm();
   }
 
-  openModal() {
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CalculatorPage');
+  }
+
+  saveData(){
+    console.log(this.myForm.value);
+
     //this.validateData();
 
     // Hacemos calculos
-    let _resultados = this.calculatorPro.obtenerResultados(this.model);
+    let _resultados = this.calculatorPro.obtenerResultados(this.myForm.value);
 
     /*
     const newCredentials: CredentialModel = {
@@ -37,27 +52,26 @@ export class CalculatorPage {
         factory: this.factory
     };*/
 
-    let loader = this.loadingCtrl.create({
-      content: "Calculando formulas...",
-      duration: 1000
-    });
-
-    loader.present();
-
     let myModal = this.modalCtrl.create(CalculatorModalPage, _resultados);
 
-    setTimeout(() => {
-      myModal.present();
-    }, 1000);
-
+    myModal.present();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalculatorPage');
-  }
-
-  sendData(){
-    console.log(this.model);
+  private createMyForm(){
+    return this.formBuilder.group({
+      genero: ['', Validators.required],
+      edad: ['', Validators.required],
+      peso_actual: ['', Validators.required],
+      peso_usual: ['', Validators.required],
+      talla: ['', Validators.required],
+      carpo: ['', Validators.required],
+      triceps: ['', Validators.required],
+      brazo: ['', Validators.required],
+      rodilla: ['', Validators.required],
+      pantorrilla: ['', Validators.required],
+      albumina: ['', Validators.required],
+      cintura: ['', Validators.required]
+    });
   }
 
   /*validateData() {
