@@ -28,6 +28,7 @@ export class CalculatorModalPage {
    cpi = 0;
    irn_valor = 0;
    irn_nombre = 'no identificado';
+   act = 0;
 
 
   constructor(
@@ -52,6 +53,7 @@ export class CalculatorModalPage {
     this.cpi = this.navParams.get('cpi');
     this.irn_valor = this.navParams.get('irn_valor');
     this.irn_nombre = this.navParams.get('irn_nombre');
+    this.act = this.navParams.get('act');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 
@@ -62,8 +64,9 @@ whatsappShare(){
    msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
-   msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar');
-   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre);
+   msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
+   msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
 

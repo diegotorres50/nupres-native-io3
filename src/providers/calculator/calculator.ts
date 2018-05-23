@@ -20,6 +20,7 @@ export class CalculatorProvider {
         irn_valor: 0,
         irn_nombre: '',
         cpi: 0,
+        act: 0
   }
 
   constructor() {
@@ -41,6 +42,8 @@ export class CalculatorProvider {
 
     if (data.genero == "hombre") {
 
+        this.results.act = ((parseFloat("2.447") - (parseFloat("0.09516") * data.edad)) + (parseFloat("0.1074") * data.talla) + (parseFloat("0.3362") * data.peso_actual));
+
         this.results.cmb_valor = (this.results.cmb_valor * 100 / parseFloat("29.3"));
 
         if (parseFloat(this.results.ec_valor) > parseFloat("10.4")) {
@@ -60,6 +63,8 @@ export class CalculatorProvider {
     }
 
     if (data.genero == "mujer") {
+
+        this.results.act = ((parseFloat("2.097") - (parseFloat("0.1069") * data.edad)) + (parseFloat("0.1074") * data.talla) + (parseFloat("0.2466") * data.peso_actual));
 
         this.results.cmb_valor = (this.results.cmb_valor * 100 / parseFloat("28.5"));
 
