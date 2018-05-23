@@ -29,7 +29,8 @@ export class CalculatorModalPage {
    irn_valor = 0;
    irn_nombre = 'no identificado';
    act = 0;
-
+   pgc = 0;
+   geb = 0;
 
   constructor(
     public navCtrl: NavController,
@@ -54,6 +55,8 @@ export class CalculatorModalPage {
     this.irn_valor = this.navParams.get('irn_valor');
     this.irn_nombre = this.navParams.get('irn_nombre');
     this.act = this.navParams.get('act');
+    this.pgc = this.navParams.get('pgc');
+    this.geb = this.navParams.get('geb');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 
@@ -67,6 +70,8 @@ whatsappShare(){
    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
    msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
    msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
+   msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
+   //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
 
