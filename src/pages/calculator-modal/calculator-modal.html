@@ -23,7 +23,7 @@
     </ion-fab-list>
   </ion-fab>
 
-	<ion-card>
+	<ion-card *ngIf="imc">
 	  <ion-card-header color="primary">
 	    <strong>Indice de Masa Corporal</strong>
 	  </ion-card-header>
@@ -32,7 +32,7 @@
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="ppp">
 	  <ion-card-header color="primary">
 	    <strong>Porcentaje de Perdida de Peso</strong>
 	  </ion-card-header>
@@ -41,7 +41,7 @@
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="ec_valor">
 	  <ion-card-header color="primary">
 	    <strong>Estructura Corporal</strong>
 	  </ion-card-header>
@@ -50,7 +50,7 @@
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="pieo">
 	  <ion-card-header color="primary">
 	    <strong>Peso Ideal por Estructura Osea</strong>
 	  </ion-card-header>
@@ -59,7 +59,7 @@
 	  </ion-card-content>
 	</ion-card>
 
-    <ion-card>
+    <ion-card *ngIf="cpi">
       <ion-card-header color="primary">
         <strong>Calculo Peso Ideal</strong>
       </ion-card-header>
@@ -68,7 +68,7 @@
       </ion-card-content>
     </ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="cmb_valor">
 	  <ion-card-header color="primary">
 	    <strong>Circunferencia Muscular del Brazo</strong>
 	  </ion-card-header>
@@ -77,16 +77,16 @@
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="irn_valor">
 	  <ion-card-header color="primary">
 	    <strong>Índice de Riesgo Nutricional</strong>
 	  </ion-card-header>
 	  <ion-card-content>
-	    <strong>IRN</strong> = NPI = 0
+	    <strong>IRN</strong> = ((1.519 × Albumina) + 41.7 × (Peso Actual / Peso Ideal )) = <strong>{{irn_valor | number : '1.2-2'}}</strong> con riesgo nutricional  <strong>{{irn_nombre}}</strong>
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="isc">
 	  <ion-card-header color="primary">
 	    <strong>Área de Superficie Corporal</strong>
 	  </ion-card-header>
@@ -95,7 +95,7 @@
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="act">
 	  <ion-card-header color="primary">
 	    <strong>Agua Corporal Total</strong>
 	  </ion-card-header>
@@ -104,7 +104,7 @@
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="pgc">
 	  <ion-card-header color="primary">
 	    <strong>Porcentaje de Grasa Corporal</strong>
 	  </ion-card-header>
@@ -113,7 +113,7 @@
 	  </ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="geb">
 	  <ion-card-header color="primary">
 	    <strong>Gasto Energetico Basal</strong>
 	  </ion-card-header>
