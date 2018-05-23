@@ -10,6 +10,10 @@
     <ion-title>Resultados</ion-title>
   </ion-navbar>
 
+  <ion-toolbar>
+    <ion-title>Subheader</ion-title>
+  </ion-toolbar>
+
 </ion-header>
 
 
@@ -100,7 +104,7 @@
 	    <strong>Agua Corporal Total</strong>
 	  </ion-card-header>
 	  <ion-card-content>
-	    <strong>ACT</strong> = NPI = 0
+	    <strong>ACT</strong> = <strong>{{act | number : '1.2-2'}}</strong>
 	  </ion-card-content>
 	</ion-card>
 
