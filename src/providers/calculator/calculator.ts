@@ -14,7 +14,10 @@ export class CalculatorProvider {
         ppp: 0,
         ec_valor: 0,
         ec_nombre: '',
-        pieo: 0
+        pieo: 0,
+        cmb_valor: 0,
+        cmb_nombre: '',
+        cpi: 0,
   }
 
   constructor() {
@@ -28,7 +31,14 @@ export class CalculatorProvider {
     this.results.ppp = (((data.peso_usual - data.peso_actual) * 100 ) / data.peso_actual);
     this.results.ec_valor = ((data.talla * 100) / data.carpo);
 
+    this.results.cpi = ((parseFloat("0.75") * (data.talla - 150)) + 50);
+
+    this.results.cmb_valor = (data.brazo - (parseFloat("0.314") * data.triceps));
+
     if (data.genero == "hombre") {
+
+        this.results.cmb_valor = (this.results.cmb_valor * 100 / parseFloat("29.3"));
+
         if (parseFloat(this.results.ec_valor) > parseFloat("10.4")) {
             this.results.ec_nombre = "Pequeña";
             this.results.pieo = ((data.talla / 100) * parseFloat("20"));
@@ -46,6 +56,9 @@ export class CalculatorProvider {
     }
 
     if (data.genero == "mujer") {
+
+        this.results.cmb_valor = (this.results.cmb_valor * 100 / parseFloat("28.5"));
+
         if (parseFloat(this.results.ec_valor) > parseFloat("11")) {
             this.results.ec_nombre = "Pequeña";
             this.results.pieo = ((data.talla / 100) * parseFloat("20"));
@@ -61,6 +74,19 @@ export class CalculatorProvider {
             this.results.pieo = ((data.talla / 100) * parseFloat("25"));
         }
     }
+
+    if (parseFloat(this.results.cmb_valor) >= parseFloat("80") && parseFloat(this.results.cmb_valor) <= parseFloat("90")) {
+        this.results.cmb_nombre = "Leve";
+    }
+
+    if (parseFloat(this.results.cmb_valor) >= parseFloat("60") && parseFloat(this.results.cmb_valor) <= parseFloat("80")) {
+        this.results.cmb_nombre = "Moderado";
+    }
+
+    if (parseFloat(this.results.cmb_valor) < parseFloat("60")) {
+        this.results.cmb_nombre = "Moderado";
+    }
+
 
     console.log(this.results);
 
