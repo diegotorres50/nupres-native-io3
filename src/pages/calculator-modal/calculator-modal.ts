@@ -26,6 +26,8 @@ export class CalculatorModalPage {
    cmb_valor = 0;
    cmb_nombre = 'no identificado';
    cpi = 0;
+   irn_valor = 0;
+   irn_nombre = 'no identificado';
 
 
   constructor(
@@ -48,6 +50,8 @@ export class CalculatorModalPage {
     this.cmb_valor = this.navParams.get('cmb_valor');
     this.cmb_nombre = this.navParams.get('cmb_nombre');
     this.cpi = this.navParams.get('cpi');
+    this.irn_valor = this.navParams.get('irn_valor');
+    this.irn_nombre = this.navParams.get('irn_nombre');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 
@@ -59,6 +63,7 @@ whatsappShare(){
    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar');
+   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre);
    this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
 

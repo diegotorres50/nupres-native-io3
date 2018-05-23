@@ -17,6 +17,8 @@ export class CalculatorProvider {
         pieo: 0,
         cmb_valor: 0,
         cmb_nombre: '',
+        irn_valor: 0,
+        irn_nombre: '',
         cpi: 0,
   }
 
@@ -34,6 +36,8 @@ export class CalculatorProvider {
     this.results.cpi = ((parseFloat("0.75") * (data.talla - 150)) + 50);
 
     this.results.cmb_valor = (data.brazo - (parseFloat("0.314") * data.triceps));
+
+    this.results.irn_valor = (((parseFloat("1519") * data.albumina) + parseFloat("41.7")) * (data.peso_actual / this.results.cpi));
 
     if (data.genero == "hombre") {
 
@@ -85,6 +89,18 @@ export class CalculatorProvider {
 
     if (parseFloat(this.results.cmb_valor) < parseFloat("60")) {
         this.results.cmb_nombre = "Moderado";
+    }
+
+    if (parseFloat("97.5") <= parseFloat(this.results.irn_valor) && parseFloat(this.results.irn_valor) < parseFloat("100")) {
+        this.results.irn_nombre = "Moderado";
+    }
+
+    if (parseFloat("83.5") <= parseFloat(this.results.irn_valor) && parseFloat(this.results.irn_valor) < parseFloat("97.5")) {
+        this.results.irn_nombre = "Moderado";
+    }
+
+    if (parseFloat(this.results.irn_valor) < parseFloat("83.5")) {
+        this.results.irn_nombre = "Grave";
     }
 
 
