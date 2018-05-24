@@ -5,6 +5,7 @@ import { CalculatorModalPage } from '../calculator-modal/calculator-modal';
 import { LoadingController } from 'ionic-angular';
 import { CalculatorProvider } from '../../providers/calculator/calculator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the CalculatorPage page.
@@ -28,13 +29,15 @@ export class CalculatorPage {
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
     public calculatorPro: CalculatorProvider,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public storage: Storage
     ) {
     this.myForm = this.createMyForm();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalculatorPage');
+    this.storage.set('intro-done', false);
   }
 
   saveData(){
