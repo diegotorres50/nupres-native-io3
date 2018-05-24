@@ -7,7 +7,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Calculadora</ion-title>
+
+    <ion-title>Calculadora de Antropometría</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="saveData()">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
@@ -17,10 +25,10 @@
 
     <ion-card>
         <ion-card-header>
-            <strong>Antropometria</strong>
+            <strong>Formulario de proporciones y medidas:</strong>
         </ion-card-header>
         <ion-card-content>
-            Por favor indique los siguientes datos en el formulario.
+            Por favor indique los datos del cuerpo del paciente...
         </ion-card-content>
     </ion-card>
 
