@@ -11,7 +11,7 @@
     <ion-title>Calculadora de Antropometría</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="saveData()">
+      <button ion-button icon-only (click)="saveData()" [disabled]="!myForm.valid">
         <ion-icon name="checkmark-circle-outline"></ion-icon>
       </button>
     </ion-buttons>
@@ -25,7 +25,7 @@
 
     <ion-card>
         <ion-card-header>
-            <strong>Formulario de proporciones y medidas:</strong>
+            <strong>Proporciones y medidas:</strong>
         </ion-card-header>
         <ion-card-content>
             Por favor indique los datos del cuerpo del paciente...
@@ -51,73 +51,121 @@
             </ion-col>
           </ion-row>
 
-        <ion-item *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty">
-          <ion-label color="genero" *ngIf="myForm.get('edad').hasError('required')">Entonces sos gay</ion-label>
+        <ion-item *ngIf="myForm.get('genero').errors && myForm.get('genero').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('genero').hasError('required')">Valor requerido</ion-label>
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" stacked>Edad</ion-label>
-            <ion-input formControlName="edad" #edad placeholder="Ejemplo: 35" type="number" name="edad" max="100" edad min="0" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Edad (años)</ion-label>
+            <ion-input formControlName="edad" #edad placeholder="Ejemplo: 35 (entre 16 y 120)" type="number" min="16" max="120" pattern="[0-9]*"></ion-input>
         </ion-item>
 
         <!--
         <ion-item *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty">
-          <p color="danger" ion-text *ngIf="myForm.get('edad').hasError('required')">La edad es requerida</p>
-        </ion-item> -->
-
-        <ion-item *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty">
-          <ion-label color="danger" *ngIf="myForm.get('edad').hasError('minlength')">Se embobo o que</ion-label>
-          <ion-label color="danger" *ngIf="myForm.get('edad').hasError('maxlength')">No puede ser tan cucho</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('edad').hasError('required')">Valor requerido</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('edad').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('edad').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
+        -->
 
         <ion-item>
-            <ion-label color="primary" stacked>Peso Actual</ion-label>
-            <ion-input formControlName="peso_actual" #peso_actual placeholder="Ejemplo: 55" type="number" name="peso_actual" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-label color="primary" stacked>Peso Actual (kg)</ion-label>
+            <ion-input formControlName="peso_actual" #peso_actual placeholder="Ejemplo: 55.5 (entre 0 y 200)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="0" max="200"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('peso_actual').errors && myForm.get('peso_actual').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('peso_actual').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('peso_actual').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Peso Usual</ion-label>
-            <ion-input formControlName="peso_usual" #peso_usual placeholder="Ejemplo: 60" type="number" name="peso_usual" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-input formControlName="peso_usual" #peso_usual placeholder="Ejemplo: 60.5 (entre 0 y 200)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="0" max="200"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('peso_usual').errors && myForm.get('peso_usual').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('peso_usual').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('peso_usual').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Talla (centímetros)</ion-label>
-            <ion-input formControlName="talla" #talla placeholder="Ejemplo: 153" type="number" name="talla" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-input formControlName="talla" #talla placeholder="Ejemplo: 150.5 (entre 0 y 230)" type="number" pattern="[0-9]*" min="0" max="230"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('talla').errors && myForm.get('talla').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('talla').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('talla').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Circunferencia de carpo</ion-label>
-            <ion-input formControlName="carpo" #carpo placeholder="Ejemplo: 15" type="number" name="carpo" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-input formControlName="carpo" #carpo placeholder="Ejemplo: 15.5 (entre 5 y 40)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="5" max="40"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('carpo').errors && myForm.get('carpo').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('carpo').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('carpo').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Pliegue cutáneo de tríceps</ion-label>
-            <ion-input formControlName="triceps" #triceps placeholder="Ejemplo: 16.5" type="number" name="triceps" step="0.01"></ion-input>
+            <ion-input formControlName="triceps" #triceps placeholder="Ejemplo: 16.5 (entre 0 y 100)" type="number" step="0.01" pattern="[0-9]+([,\.][0-9]+)?" min="0" max="100"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('triceps').errors && myForm.get('triceps').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('triceps').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('triceps').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Circunferencia de brazo</ion-label>
-            <ion-input formControlName="brazo" #brazo placeholder="Ejemplo: 26" type="number" name="brazo" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-input formControlName="brazo" #brazo placeholder="Ejemplo: 26.5 (entre 10 y 50)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="10" max="50"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('brazo').errors && myForm.get('brazo').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('brazo').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('brazo').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Altura de rodilla</ion-label>
-            <ion-input formControlName="rodilla" #rodilla placeholder="Ejemplo: 45.5" type="number" name="rodilla" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-input formControlName="rodilla" #rodilla placeholder="Ejemplo: 45.5 (entre 10 y 80)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="10" max="80"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('rodilla').errors && myForm.get('rodilla').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('rodilla').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('rodilla').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Circunferencia de pantorrilla</ion-label>
-            <ion-input formControlName="pantorrilla" #pantorrilla placeholder="Indique pantorrilla aquí" type="number" name="pantorrilla" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-input formControlName="pantorrilla" #pantorrilla placeholder="Ejemplo 10.5 (entre 10 y 60)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="10" max="60"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('pantorrilla').errors && myForm.get('pantorrilla').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('pantorrilla').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('pantorrilla').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Albumina en suero</ion-label>
-            <ion-input formControlName="albumina" #albumnina placeholder="Ejemplo: 2.2" type="number" name="albumina" step="0.01"></ion-input>
+            <ion-input formControlName="albumina" #albumnina placeholder="Ejemplo: 2.2 (entre 0 y 6)" type="number" step="0.01" pattern="[0-9]+([,\.][0-9]+)?" min="0" max="6"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('albumina').errors && myForm.get('albumina').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('albumina').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('albumina').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label color="primary" stacked>Cintura en (en centímetros)</ion-label>
-            <ion-input formControlName="cintura" #cintura placeholder="Indique cintura aquí" type="number" name="cintura" pattern="[0-9]*" step="0.01"></ion-input>
+            <ion-input formControlName="cintura" #cintura placeholder="Ejemplo: 30.5 (entre 30 y 300)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="30" max="300"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="myForm.get('cintura').errors && myForm.get('cintura').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('cintura').hasError('minlength')">No cumple la mínimo valor</ion-label>
+          <ion-label color="danger" *ngIf="myForm.get('cintura').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
 
     <div formGroupName="amputacion">

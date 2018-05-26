@@ -63,17 +63,17 @@ export class CalculatorPage {
   private createMyForm(){
     return this.formBuilder.group({
       genero: ['', [Validators.required]],
-      edad: ['', [Validators.minLength(0), Validators.maxLength(100)]],
-      peso_actual: [''],
-      peso_usual: [''],
-      talla: [''],
-      carpo: [''],
-      triceps: [''],
-      brazo: [''],
-      rodilla: [''],
-      pantorrilla: [''],
-      albumina: [''],
-      cintura: [''],
+      edad: ['', [Validators.required]],
+      peso_actual: ['', [Validators.minLength(0), Validators.maxLength(200)]],
+      peso_usual: ['', [Validators.minLength(0), Validators.maxLength(200)]],
+      talla: ['', [Validators.minLength(0), Validators.maxLength(230)]],
+      carpo: ['', [Validators.minLength(5), Validators.maxLength(40)]],
+      triceps: ['', [Validators.minLength(0), Validators.maxLength(100)]],
+      brazo: ['', [Validators.minLength(10), Validators.maxLength(50)]],
+      rodilla: ['', [Validators.minLength(10), Validators.maxLength(80)]],
+      pantorrilla: ['', [Validators.minLength(10), Validators.maxLength(60)]],
+      albumina: ['', [Validators.minLength(0), Validators.maxLength(6)]],
+      cintura: ['', [Validators.minLength(30), Validators.maxLength(300)]],
       amputacion: this.formBuilder.group({
         amputaciones: [''],
         bilateral: ['']
