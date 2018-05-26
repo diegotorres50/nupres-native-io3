@@ -62,15 +62,15 @@ export class CalculatorModalPage {
 
 whatsappShare(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Antropometria del paciente_: \n\n';
-   msg = msg.concat('*Indice de Masa Corporal:* ' + parseFloat(this.imc).toFixed(2) + '\n');
-   msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + parseFloat(this.ppp).toFixed(2) + '\n');
-   msg = msg.concat('*Estructura Corporal:* ' + parseFloat(this.ec_valor).toFixed(2) + ' de tipo ' + this.ec_nombre +  '\n');
-   msg = msg.concat('*Peso Ideal Osea:* ' + parseFloat(this.pieo).toFixed(2) + '\n');
-   msg = msg.concat('*Calculo de Peso Ideal:* ' + parseFloat(this.cpi).toFixed(2) + '\n');
-   msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + parseFloat(this.cmb_valor).toFixed(2) + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
-   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + parseFloat(this.irn_valor).toFixed(2) + ' de tipo ' + this.irn_nombre + '\n');
-   msg = msg.concat('*Agua Corporal Total:* ' + parseFloat(this.act).toFixed(2) + '\n');
-   msg = msg.concat('*Porcentaje Grasa Corporal:* ' + parseFloat(this.pgc).toFixed(2) + '\n');
+   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + '\n');
+   msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
+   msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
+   msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
+   msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
+   msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
+   msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
+   msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
    //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
