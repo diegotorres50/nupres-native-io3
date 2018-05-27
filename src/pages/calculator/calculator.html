@@ -56,21 +56,31 @@
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" stacked>Edad (años)</ion-label>
-            <ion-input formControlName="edad" #edad placeholder="Ejemplo: 35 (entre 16 y 120)" type="number" min="16" max="120" pattern="[0-9]*"></ion-input>
+            <ion-label color="primary" stacked>Edad: {{edad}} (años)</ion-label>
+            <ion-range formControlName="edad" min="16" max="120" [(ngModel)]="edad" color="secondary" pin="true" step="1">
+              <ion-label color="primary" range-left>16</ion-label>
+              <ion-label color="primary" range-right>120</ion-label>
+            </ion-range>
         </ion-item>
 
-        <!--
+
+
+
         <ion-item *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty">
           <ion-label color="danger" *ngIf="myForm.get('edad').hasError('required')">Valor requerido</ion-label>
           <ion-label color="danger" *ngIf="myForm.get('edad').hasError('minlength')">No cumple la mínimo valor</ion-label>
           <ion-label color="danger" *ngIf="myForm.get('edad').hasError('maxlength')">Excede el máximo valor</ion-label>
         </ion-item>
-        -->
+
 
         <ion-item>
-            <ion-label color="primary" stacked>Peso Actual (kg)</ion-label>
-            <ion-input formControlName="peso_actual" #peso_actual placeholder="Ejemplo: 55.5 (entre 0 y 200)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="0" max="200"></ion-input>
+            <ion-label color="primary" stacked>Peso Actual: {{peso_actual | number : '1.2-2'}} (kg)</ion-label>
+            <ion-range formControlName="peso_actual" min="0" max="200" [(ngModel)]="peso_actual" color="secondary" pin="true" step="0.01">
+              <ion-label color="primary" range-left>0</ion-label>
+              <ion-label color="primary" range-right>200</ion-label>
+            </ion-range>
+
+
         </ion-item>
 
         <ion-item *ngIf="myForm.get('peso_actual').errors && myForm.get('peso_actual').dirty">
