@@ -4,7 +4,7 @@ import { ModalController } from 'ionic-angular';
 import { CalculatorModalPage } from '../calculator-modal/calculator-modal';
 import { LoadingController } from 'ionic-angular';
 import { CalculatorProvider } from '../../providers/calculator/calculator';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -40,8 +40,14 @@ export class CalculatorPage {
     this.storage.set('intro-done', false);
   }
 
+  echoErrors(){
+    console.log(this.myForm.get('edad'));
+  }
+
   saveData(){
     console.log(this.myForm.value);
+
+    console.log(this.myForm);
 
     //this.validateData();
 
@@ -60,10 +66,20 @@ export class CalculatorPage {
     myModal.present();
   }
 
+    //https://forum.ionicframework.com/t/using-form-validators-return-values-for-error-messages/100190/4
+
+    minMax(control: FormControl) {
+          console.log('hola');
+          console.log(control);
+          return parseInt(control.value) >= 16 && parseInt(control.value) <= 120 ? null : {
+            minMax: true
+          }
+      }
+
   private createMyForm(){
     return this.formBuilder.group({
       genero: ['', [Validators.required]],
-      edad: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(120)]],
+      edad: ['', [Validators.required, this.minMax]],
       peso_actual: ['', [Validators.minLength(0), Validators.maxLength(200)]],
       peso_usual: ['', [Validators.minLength(0), Validators.maxLength(200)]],
       talla: ['', [Validators.minLength(0), Validators.maxLength(230)]],
