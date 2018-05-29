@@ -32,19 +32,69 @@ export class CalculatorProvider {
   obtenerResultados(data: any) {
     console.log(data);
     console.log('Intentando hacer el calculo...');
-    this.results.imc = (data.peso_actual / ((data.talla / 100) * (data.talla / 100)));
-    this.results.ppp = (((data.peso_usual - data.peso_actual) * 100 ) / data.peso_actual);
+
+    // Datos ingresados
+    this.results.genero = data.genero;
+    this.results.edad = data.edad;
+    this.results.peso_actual = data.peso_actual;
+    this.results.peso_usual = data.peso_usual;
+    this.results.talla = data.talla;
+    this.results.carpo = data.carpo;
+    this.results.triceps = data.triceps;
+    this.results.brazo = data.brazo;
+    this.results.rodilla = data.rodilla;
+    this.results.pantorrilla = data.pantorrilla;
+    this.results.albumina = data.albumina;
+    this.results.cintura = data.cintura;
+    //
+
+    this.results.peso_calculado = 0;
+
+    let peso = data.peso_actual;
+
+    console.info('Peso actual: ' + data.peso_actual);
+    console.info(parseFloat(data.peso_actual));
+
+    // Recalculamos el peso
+    if (parseFloat(data.peso_actual) <= parseFloat("0") || !isNaN(data.peso_actual)) {
+        console.info('Se calculara peso');
+        if (data.genero == "hombre") {
+            if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
+                this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.19")) + (parseFloat(data.brazo) * parseFloat("3.21")) - parseFloat("86.82"));
+            } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
+                this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.10")) + (parseFloat(data.brazo) * parseFloat("3.07")) - parseFloat("75.81"));
+            }
+        } else if (data.genero == "mujer") {
+            if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
+                this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.01")) + (parseFloat(data.brazo) * parseFloat("2.81")) - parseFloat("66.04"));
+            } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
+                this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.09")) + (parseFloat(data.brazo) * parseFloat("2.68")) - parseFloat("65.51"));
+            }
+        }
+    }
+
+    console.info('Peso calculado: ' + this.results.peso_calculado);
+
+    if (parseFloat(this.results.peso_calculado) > 0) {
+        peso = this.results.peso_calculado;
+    }
+
+    this.results.imc = (parseFloat(peso) / ((parseInt(data.talla) / parseInt("100")) * (parseInt(data.talla) / parseInt("100"))));
+
+    this.results.imc = parseFloat(this.results.imc).toFixed(2);
+
+    this.results.ppp = (((data.peso_usual - peso) * 100 ) / peso);
     this.results.ec_valor = ((data.talla * 100) / data.carpo);
 
     this.results.cpi = ((parseFloat("0.75") * (data.talla - 150)) + 50);
 
     this.results.cmb_valor = (data.brazo - (parseFloat("0.314") * data.triceps));
 
-    this.results.irn_valor = (((parseFloat("1519") * data.albumina) + parseFloat("41.7")) * (data.peso_actual / this.results.cpi));
+    this.results.irn_valor = (((parseFloat("1519") * data.albumina) + parseFloat("41.7")) * (peso / this.results.cpi));
 
     if (data.genero == "hombre") {
 
-        this.results.act = ((parseFloat("2.447") - (parseFloat("0.09516") * data.edad)) + (parseFloat("0.1074") * data.talla) + (parseFloat("0.3362") * data.peso_actual));
+        this.results.act = ((parseFloat("2.447") - (parseFloat("0.09516") * data.edad)) + (parseFloat("0.1074") * data.talla) + (parseFloat("0.3362") * peso));
 
         this.results.pgc = ((parseFloat("0.567") * data.cintura) + (parseFloat("0.101") * data.edad) - parseFloat("31.8"));
 
@@ -73,7 +123,7 @@ export class CalculatorProvider {
 
     if (data.genero == "mujer") {
 
-        this.results.act = ((parseFloat("2.097") - (parseFloat("0.1069") * data.edad)) + (parseFloat("0.1074") * data.talla) + (parseFloat("0.2466") * data.peso_actual));
+        this.results.act = ((parseFloat("2.097") - (parseFloat("0.1069") * data.edad)) + (parseFloat("0.1074") * data.talla) + (parseFloat("0.2466") * peso));
 
         this.results.pgc = ((parseFloat("0.439") * data.cintura) + (parseFloat("0.221") * data.edad) - parseFloat("9.4"));
 
