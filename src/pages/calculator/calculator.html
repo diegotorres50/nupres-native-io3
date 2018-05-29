@@ -260,14 +260,54 @@
           <ion-label color="danger" *ngIf="myForm.get('albumina').hasError('minMax')">Valor entre 0 y 6</ion-label>
         </ion-item>
 
+
+
+
+
+
+
+
+
+          <ion-row>
+            <ion-col>
+
+
         <ion-item>
             <ion-label color="primary" stacked>Cintura (cm)</ion-label>
             <ion-input formControlName="cintura" #cintura placeholder="Ejemplo: 30.5 (entre 30 y 300)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
         </ion-item>
 
+
+            </ion-col>
+            <ion-col>
+
+
+        <ion-item>
+            <ion-label color="primary" stacked>Media envergadura (cm)</ion-label>
+            <ion-input formControlName="envergadura" #envergadura placeholder="Ejemplo: 50 (entre 0 y 120)" type="number" step="0.01" pattern="[0-9]*"></ion-input>
+        </ion-item>
+
+
+            </ion-col>
+          </ion-row>
+
+
+
+
+
+
+
+
         <ion-item *ngIf="myForm.get('cintura').errors && myForm.get('cintura').dirty">
           <ion-label color="danger" *ngIf="myForm.get('cintura').hasError('minMax')">Valor entre 30 y 300</ion-label>
         </ion-item>
+
+        <ion-item *ngIf="myForm.get('envergadura').errors && myForm.get('envergadura').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('envergadura').hasError('minMax')">Valor entre 0 y 120</ion-label>
+        </ion-item>
+
+
+
 
     <div formGroupName="amputacion">
 

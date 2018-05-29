@@ -24,6 +24,7 @@ export class CalculatorModalPage {
    peso_actual = 0;
    peso_usual = 0;
    peso_calculado = 0;
+   talla_calculada = 0;
    talla = 0;
    carpo = 0;
    triceps = 0;
@@ -32,6 +33,7 @@ export class CalculatorModalPage {
    pantorrilla = 0;
    albumina = 0;
    cintura = 0;
+   envergadura = 0;
 
    //
    imc = 0;
@@ -66,6 +68,7 @@ export class CalculatorModalPage {
     this.peso_actual = this.navParams.get('peso_actual');
     this.peso_usual = this.navParams.get('peso_usual');
     this.peso_calculado = this.navParams.get('peso_calculado');
+    this.talla_calculada = this.navParams.get('peso_calculado');
     this.talla = this.navParams.get('talla');
     this.carpo = this.navParams.get('carpo');
     this.triceps = this.navParams.get('triceps');
@@ -74,6 +77,7 @@ export class CalculatorModalPage {
     this.pantorrilla = this.navParams.get('pantorrilla');
     this.albumina = this.navParams.get('albumina');
     this.cintura = this.navParams.get('cintura');
+    this.envergadura = this.navParams.get('envergadura');
 
 
     this.imc = this.navParams.get('imc');

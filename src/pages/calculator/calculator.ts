@@ -138,6 +138,13 @@ export class CalculatorPage {
           }
       }
 
+    minMax11(control: FormControl) {
+          console.log(control);
+          return parseInt(control.value) >= 0 && parseInt(control.value) <= 120 ? null : {
+            minMax: true
+          }
+      }
+
   private createMyForm(){
     return this.formBuilder.group({
       genero: ['', [Validators.required]],
@@ -152,6 +159,7 @@ export class CalculatorPage {
       pantorrilla: ['', [this.minMax8]],
       albumina: ['', [this.minMax9]],
       cintura: ['', [this.minMax10]],
+      envergadura: ['', [this.minMax11]],
       amputacion: this.formBuilder.group({
         amputaciones: [''],
         bilateral: ['']
