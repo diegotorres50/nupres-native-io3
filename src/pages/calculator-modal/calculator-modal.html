@@ -39,6 +39,7 @@
         <p *ngIf="peso_calculado"><strong>Peso Estimado: </strong>{{peso_calculado}} kgs</p>
         <p *ngIf="peso_usual"><strong>Peso Usual: </strong>{{peso_usual}} kgs</p>
         <p *ngIf="talla"><strong>Talla: </strong>{{talla}} cms</p>
+        <p *ngIf="talla_calculada"><strong>Talla Estimada: </strong>{{talla_calculada}} cms</p>
         <p *ngIf="carpo"><strong>Circunferencia de Carpo: </strong>{{carpo}}</p>
         <p *ngIf="triceps"><strong>Pliegue Cutáneo de Tríceps: </strong>{{triceps}}</p>
         <p *ngIf="brazo"><strong>Circunferencia de Brazo: </strong>{{brazo}}</p>
@@ -46,6 +47,7 @@
         <p *ngIf="pantorrilla"><strong>Circunferencia de Pantorrilla: </strong>{{pantorrilla}}</p>
         <p *ngIf="albumina"><strong>Albúmina en Suero: </strong>{{albumina}}</p>
         <p *ngIf="cintura"><strong>Cintura: </strong>{{cintura}}</p>
+        <p *ngIf="envergadura"><strong>Media Envergadura: </strong>{{envergadura}}</p>
       </ion-card-content>
     </ion-card>
 
@@ -55,6 +57,8 @@
       </ion-card-header>
       <ion-card-content>
         <p *ngIf="imc"><strong>Indice de Masa Corporal: </strong>{{imc}}</p>
+        <p *ngIf="ppp"><strong>Porcentaje de Perdida de Peso: </strong>{{ppp}}</p>
+        <p *ngIf="ec_valor"><strong>Estructura Corporal: </strong>{{ec_valor}}</p>
       </ion-card-content>
     </ion-card>
 
