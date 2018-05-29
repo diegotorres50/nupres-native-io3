@@ -18,6 +18,22 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 })
 export class CalculatorModalPage {
 
+   // Datos ingresados
+   genero = 'no identificado';
+   edad = 0;
+   peso_actual = 0;
+   peso_usual = 0;
+   peso_calculado = 0;
+   talla = 0;
+   carpo = 0;
+   triceps = 0;
+   brazo = 0;
+   rodilla = 0;
+   pantorrilla = 0;
+   albumina = 0;
+   cintura = 0;
+
+   //
    imc = 0;
    ppp = 0;
    ec_valor = 0;
@@ -44,6 +60,22 @@ export class CalculatorModalPage {
   }
 
   ionViewDidLoad() {
+    // Datos ingresados
+    this.genero = this.navParams.get('genero');
+    this.edad = this.navParams.get('edad');
+    this.peso_actual = this.navParams.get('peso_actual');
+    this.peso_usual = this.navParams.get('peso_usual');
+    this.peso_calculado = this.navParams.get('peso_calculado');
+    this.talla = this.navParams.get('talla');
+    this.carpo = this.navParams.get('carpo');
+    this.triceps = this.navParams.get('triceps');
+    this.brazo = this.navParams.get('brazo');
+    this.rodilla = this.navParams.get('rodilla');
+    this.pantorrilla = this.navParams.get('pantorrilla');
+    this.albumina = this.navParams.get('albumina');
+    this.cintura = this.navParams.get('cintura');
+
+
     this.imc = this.navParams.get('imc');
     this.ppp = this.navParams.get('ppp');
     this.ec_valor = this.navParams.get('ec_valor');

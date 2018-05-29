@@ -27,104 +27,36 @@
     </ion-fab-list>
   </ion-fab>
 
-	<ion-card *ngIf="imc">
-	  <ion-card-header color="primary">
-	    <strong>Indice de Masa Corporal</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>IMC</strong> = Peso / ((Talla / 100) * (Talla / 100)) = <strong>{{imc | number : '1.2-2'}}</strong>
-	  </ion-card-content>
-	</ion-card>
 
-	<ion-card *ngIf="ppp">
-	  <ion-card-header color="primary">
-	    <strong>Porcentaje de Perdida de Peso</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>PPP</strong> = (Peso Usual - Peso Actual) * 100 / Peso Actual = <strong>{{ppp | number : '1.2-2'}}</strong>
-	  </ion-card-content>
-	</ion-card>
-
-	<ion-card *ngIf="ec_valor">
-	  <ion-card-header color="primary">
-	    <strong>Estructura Corporal</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>EC</strong> = (Talla * 100) / Carpo  = <strong>{{ec_valor | number : '1.2-2'}}</strong> con estructura <strong>{{ec_nombre}}</strong>
-	  </ion-card-content>
-	</ion-card>
-
-	<ion-card *ngIf="pieo">
-	  <ion-card-header color="primary">
-	    <strong>Peso Ideal por Estructura Osea</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>PIEO</strong> = (Talla / 100) x (EC Grande | EC Pequeña | EC Mediana) = <strong>{{pieo | number : '1.2-2'}}</strong>
-	  </ion-card-content>
-	</ion-card>
-
-    <ion-card *ngIf="cpi">
+    <ion-card>
       <ion-card-header color="primary">
-        <strong>Calculo Peso Ideal</strong>
+        <strong>Datos básicos ingresados:</strong>
       </ion-card-header>
       <ion-card-content>
-        <strong>cpi</strong> = (0.75 x (Talla - 150)) + 50 = <strong>{{cpi | number : '1.2-2'}}</strong>
+        <p *ngIf="genero"><strong>Género: </strong>{{genero}}</p>
+        <p *ngIf="edad"><strong>Edad: </strong>{{edad}} años</p>
+        <p *ngIf="peso_actual"><strong>Peso Actual: </strong>{{peso_actual}} kgs</p>
+        <p *ngIf="peso_calculado"><strong>Peso Estimado: </strong>{{peso_calculado}} kgs</p>
+        <p *ngIf="peso_usual"><strong>Peso Usual: </strong>{{peso_usual}} kgs</p>
+        <p *ngIf="talla"><strong>Talla: </strong>{{talla}} cms</p>
+        <p *ngIf="carpo"><strong>Circunferencia de Carpo: </strong>{{carpo}}</p>
+        <p *ngIf="triceps"><strong>Pliegue Cutáneo de Tríceps: </strong>{{triceps}}</p>
+        <p *ngIf="brazo"><strong>Circunferencia de Brazo: </strong>{{brazo}}</p>
+        <p *ngIf="rodilla"><strong>Altura de rodilla: </strong>{{rodilla}}</p>
+        <p *ngIf="pantorrilla"><strong>Circunferencia de Pantorrilla: </strong>{{pantorrilla}}</p>
+        <p *ngIf="albumina"><strong>Albúmina en Suero: </strong>{{albumina}}</p>
+        <p *ngIf="cintura"><strong>Cintura: </strong>{{cintura}}</p>
       </ion-card-content>
     </ion-card>
 
-	<ion-card *ngIf="cmb_valor">
-	  <ion-card-header color="primary">
-	    <strong>Circunferencia Muscular del Brazo</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>CMB</strong> = <strong>{{cmb_valor | number : '1.2-2'}}</strong> grado de deficit <strong>{{cmb_nombre}}</strong> del estandar
-	  </ion-card-content>
-	</ion-card>
-
-	<ion-card *ngIf="irn_valor">
-	  <ion-card-header color="primary">
-	    <strong>Índice de Riesgo Nutricional</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>IRN</strong> = ((1.519 × Albumina) + 41.7 × (Peso Actual / Peso Ideal )) = <strong>{{irn_valor | number : '1.2-2'}}</strong> con riesgo nutricional  <strong>{{irn_nombre}}</strong>
-	  </ion-card-content>
-	</ion-card>
-
-	<ion-card *ngIf="isc">
-	  <ion-card-header color="primary">
-	    <strong>Área de Superficie Corporal</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>ISC</strong> = NPI = 0
-	  </ion-card-content>
-	</ion-card>
-
-	<ion-card *ngIf="act">
-	  <ion-card-header color="primary">
-	    <strong>Agua Corporal Total</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>ACT</strong> = <strong>{{act | number : '1.2-2'}}</strong>
-	  </ion-card-content>
-	</ion-card>
-
-	<ion-card *ngIf="pgc">
-	  <ion-card-header color="primary">
-	    <strong>Porcentaje de Grasa Corporal</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>PGC</strong> = <strong>{{pgc | number : '1.2-2'}}</strong>
-	  </ion-card-content>
-	</ion-card>
-
-	<ion-card *ngIf="geb">
-	  <ion-card-header color="primary">
-	    <strong>Gasto Energetico Basal</strong>
-	  </ion-card-header>
-	  <ion-card-content>
-	    <strong>GEB</strong> = NPI = 0
-	  </ion-card-content>
-	</ion-card>
+    <ion-card>
+      <ion-card-header color="primary">
+        <strong>Resultados calculados:</strong>
+      </ion-card-header>
+      <ion-card-content>
+        <p *ngIf="imc"><strong>Indice de Masa Corporal: </strong>{{imc}}</p>
+      </ion-card-content>
+    </ion-card>
 
     <button ion-button block (click)="closeModal()">Regresar</button>
 </ion-content>
