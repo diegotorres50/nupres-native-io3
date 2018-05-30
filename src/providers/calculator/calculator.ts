@@ -47,7 +47,7 @@ export class CalculatorProvider {
     this.results.pantorrilla = data.pantorrilla;
     this.results.albumina = data.albumina;
     this.results.cintura = data.cintura;
-    this.results.cintura = data.envergadura;
+    this.results.envergadura = data.envergadura;
     //
 
     let talla = data.talla;
@@ -95,6 +95,8 @@ export class CalculatorProvider {
         talla = this.results.talla_calculada;
     }
 
+    console.info('Talla real real: ' + talla);
+
     //
 
     this.results.peso_calculado = 0;
@@ -123,9 +125,9 @@ export class CalculatorProvider {
     }
 
     if (data.genero == "hombre") {
-        this.results.ps = (parseFloat("24") * (parseFloat(talla) * parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+        this.results.ps = (parseFloat("24") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
     } else if (data.genero == "mujer") {
-        this.results.ps = (parseFloat("22") * (parseFloat(talla) * parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+        this.results.ps = (parseFloat("22") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
     }
 
     console.info('Peso calculado: ' + this.results.peso_calculado);
@@ -136,7 +138,7 @@ export class CalculatorProvider {
         peso = this.results.ps;
     }
 
-    this.results.imc = (parseFloat(peso) / ((parseInt(talla) / parseInt("100")) * (parseInt(talla) / parseInt("100"))));
+    this.results.imc = (parseFloat(peso) / ((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))));
     this.results.imc = parseFloat(this.results.imc).toFixed(2);
 
     this.results.ppp = (((parseFloat(data.peso_usual) - parseFloat(peso)) * parseFloat("100") ) / parseFloat(peso));

@@ -115,7 +115,7 @@ whatsappShare(){
    msg = msg.concat('*Cintura:* ' + this.cintura + '\n');
    msg = msg.concat('*Media Envergadura:* ' + this.envergadura + '\n');
 
-   msg = '\n_Antropometría del paciente_: \n\n';
+   msg = msg.concat('\n_Antropometría del paciente_: \n\n');
 
    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
    msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
