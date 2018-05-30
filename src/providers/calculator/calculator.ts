@@ -91,7 +91,7 @@ export class CalculatorProvider {
 
     console.info('Talla calculada: ' + this.results.talla_calculada);
 
-    if (parseFloat(talla) <= parseFloat("0")) {
+    if (parseFloat(talla) <= parseFloat("0") || isNaN(talla) === false) {
         if (parseFloat(this.results.talla_calculada) > parseFloat("0")) {
             talla = this.results.talla_calculada;
         }
@@ -134,7 +134,7 @@ export class CalculatorProvider {
 
     console.info('Peso calculado: ' + this.results.peso_calculado);
 
-    if (parseFloat(peso) <= parseFloat("0")) {
+    if (parseFloat(peso) <= parseFloat("0") || isNaN(peso) === false) {
         if (parseFloat(this.results.peso_calculado) > parseFloat("0")) {
             peso = this.results.peso_calculado;
         } else if (parseFloat(this.results.ps) > parseFloat("0")) {
