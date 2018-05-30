@@ -125,7 +125,7 @@ export class CalculatorProvider {
     this.results.ec_valor = ((parseFloat(talla)) / parseFloat(data.carpo));
     this.results.ec_valor = parseFloat(this.results.ec_valor).toFixed(2);
 
-    this.results.cpi = ((parseFloat("0.75") * (parseFloat(talla) - parseFloat(150))) + parseFloat(50));
+    this.results.cpi = ((parseFloat("0.75") * (parseFloat(talla) - parseFloat("150"))) + parseFloat("50"));
 
     this.results.cmb_valor = (parseFloat(data.brazo) - (parseFloat("0.314") * parseFloat(data.triceps)));
 
