@@ -49,6 +49,7 @@ export class CalculatorModalPage {
    act = 0;
    pgc = 0;
    geb = 0;
+   ps = 0;
 
   constructor(
     public navCtrl: NavController,
@@ -68,7 +69,7 @@ export class CalculatorModalPage {
     this.peso_actual = this.navParams.get('peso_actual');
     this.peso_usual = this.navParams.get('peso_usual');
     this.peso_calculado = this.navParams.get('peso_calculado');
-    this.talla_calculada = this.navParams.get('peso_calculado');
+    this.talla_calculada = this.navParams.get('talla_calculada');
     this.talla = this.navParams.get('talla');
     this.carpo = this.navParams.get('carpo');
     this.triceps = this.navParams.get('triceps');
@@ -93,6 +94,7 @@ export class CalculatorModalPage {
     this.act = this.navParams.get('act');
     this.pgc = this.navParams.get('pgc');
     this.geb = this.navParams.get('geb');
+    this.ps = this.navParams.get('ps');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 

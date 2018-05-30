@@ -37,7 +37,7 @@ export class CalculatorPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalculatorPage');
-    this.storage.set('intro-done', false);
+    //this.storage.set('intro-done', false);
   }
 
   echoErrors(){
