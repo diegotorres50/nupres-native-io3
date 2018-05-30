@@ -159,11 +159,6 @@ export class CalculatorProvider {
 
         this.results.pgc = ((parseFloat("0.567") * parseFloat(data.cintura)) + (parseFloat("0.101") * parseFloat(data.edad)) - parseFloat("31.8"));
 
-        //this.results.geb = (parseFloat("10") * data.peso_actual) + (parseFloat("6.25") * data.cintura)
-
-        // (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5
-
-
         this.results.cmb_valor = (parseFloat(this.results.cmb_valor) * parseFloat("100") / parseFloat("29.3"));
 
         if (parseFloat(this.results.ec_valor) > parseFloat("10.4")) {
