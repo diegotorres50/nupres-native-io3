@@ -127,9 +127,9 @@ export class CalculatorProvider {
     }
 
     if (data.genero == "hombre") {
-        this.results.ps = (parseFloat("24") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+        this.results.ps = (parseFloat("24") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100")));
     } else if (data.genero == "mujer") {
-        this.results.ps = (parseFloat("22") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+        this.results.ps = (parseFloat("22") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100")));
     }
 
     console.info('Peso calculado: ' + this.results.peso_calculado);
