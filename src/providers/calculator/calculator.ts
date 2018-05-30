@@ -91,8 +91,10 @@ export class CalculatorProvider {
 
     console.info('Talla calculada: ' + this.results.talla_calculada);
 
-    if (parseFloat(this.results.talla_calculada) > parseFloat("0")) {
-        talla = this.results.talla_calculada;
+    if (parseFloat(talla) <= parseFloat("0")) {
+        if (parseFloat(this.results.talla_calculada) > parseFloat("0")) {
+            talla = this.results.talla_calculada;
+        }
     }
 
     console.info('Talla real real: ' + talla);
@@ -132,10 +134,12 @@ export class CalculatorProvider {
 
     console.info('Peso calculado: ' + this.results.peso_calculado);
 
-    if (parseFloat(this.results.peso_calculado) > parseFloat("0")) {
-        peso = this.results.peso_calculado;
-    } else if (parseFloat(this.results.ps) > parseFloat("0")) {
-        peso = this.results.ps;
+    if (parseFloat(peso) <= parseFloat("0")) {
+        if (parseFloat(this.results.peso_calculado) > parseFloat("0")) {
+            peso = this.results.peso_calculado;
+        } else if (parseFloat(this.results.ps) > parseFloat("0")) {
+            peso = this.results.ps;
+        }
     }
 
     this.results.imc = (parseFloat(peso) / ((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))));
