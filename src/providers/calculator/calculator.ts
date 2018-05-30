@@ -47,7 +47,7 @@ export class CalculatorProvider {
     this.results.pantorrilla = data.pantorrilla;
     this.results.albumina = data.albumina;
     this.results.cintura = data.cintura;
-    this.results.cintura = data.envergadura;
+    this.results.envergadura = data.envergadura;
     //
 
     let talla = data.talla;
@@ -125,9 +125,9 @@ export class CalculatorProvider {
     }
 
     if (data.genero == "hombre") {
-        this.results.ps = (parseFloat("24") * (parseFloat(talla) * parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+        this.results.ps = (parseFloat("24") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
     } else if (data.genero == "mujer") {
-        this.results.ps = (parseFloat("22") * (parseFloat(talla) * parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+        this.results.ps = (parseFloat("22") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
     }
 
     console.info('Peso calculado: ' + this.results.peso_calculado);
