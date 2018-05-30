@@ -50,6 +50,43 @@ export class CalculatorProvider {
     this.results.cintura = data.envergadura;
     //
 
+    let talla = data.talla;
+
+    this.results.talla_calculada = 0;
+
+    console.info('Talla actual: ' + data.talla);
+    console.info(parseFloat(data.talla));
+
+    // Recalculamos la talla
+    if (parseFloat(data.talla) <= parseFloat("0") || !isNaN(data.talla)) {
+        console.info('Se calculara talla');
+        if (parseInt(data.envergadura) > parseInt("0") && isNaN(data.envergadura)) {
+            this.results.talla_calculada = (parseInt(data.envergadura) * parseInt("2"));
+        } else if (parseFloat(data.rodilla) > parseFloat("0") && isNaN(data.rodilla)) {
+            if (data.genero == "hombre") {
+                if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
+                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.88")) + parseFloat("71.85"));
+                } else if (parseInt(data.edad) >= parseInt("60") && parseInt(data.edad) <= parseInt("80")) {
+                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("2.22")) + parseFloat("59.01"));
+                }
+            } else if (data.genero == "mujer") {
+                if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
+                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.86")) - (parseFloat(data.edad) * parseFloat("0.05")) + parseFloat("70.25"));
+                } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
+                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.91")) - (parseFloat(data.edad) * parseFloat("0.17")) + parseFloat("75"));
+                }
+            }
+        }
+    }
+
+    console.info('Talla calculada: ' + this.results.talla_calculada);
+
+    if (parseFloat(this.results.talla_calculada) > parseFloat("0")) {
+        talla = this.results.talla_calculada;
+    }
+
+    //
+
     this.results.peso_calculado = 0;
 
     let peso = data.peso_actual;
@@ -61,59 +98,32 @@ export class CalculatorProvider {
     if (parseFloat(data.peso_actual) <= parseFloat("0") || !isNaN(data.peso_actual)) {
         console.info('Se calculara peso');
         if (data.genero == "hombre") {
-            if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
+            if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.19")) + (parseFloat(data.brazo) * parseFloat("3.21")) - parseFloat("86.82"));
-            } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
+            } else if (parseInt(data.edad) >= parseInt("60") && parseInt(data.edad) <= parseInt("80")) {
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.10")) + (parseFloat(data.brazo) * parseFloat("3.07")) - parseFloat("75.81"));
             }
         } else if (data.genero == "mujer") {
-            if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
+            if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.01")) + (parseFloat(data.brazo) * parseFloat("2.81")) - parseFloat("66.04"));
-            } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
+            } else if (parseInt(data.edad) >= parseInt("60") && parseInt(data.edad) <= parseInt("80")) {
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.09")) + (parseFloat(data.brazo) * parseFloat("2.68")) - parseFloat("65.51"));
             }
         }
     }
 
+    if (data.genero == "hombre") {
+        this.results.ps = (parseFloat("24") * (parseFloat(talla) * parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+    } else if (data.genero == "mujer") {
+        this.results.ps = (parseFloat("22") * (parseFloat(talla) * parseFloat("100")) * (parseFloat(talla) * parseFloat("100")));
+    }
+
     console.info('Peso calculado: ' + this.results.peso_calculado);
 
-    if (parseFloat(this.results.peso_calculado) > 0) {
+    if (parseFloat(this.results.peso_calculado) > parseFloat("0")) {
         peso = this.results.peso_calculado;
-    }
-
-    let talla = data.talla;
-
-    this.results.talla_calculada = 0;
-
-    console.info('Talla actual: ' + data.talla);
-    console.info(parseFloat(data.talla));
-
-    // Recalculamos la talla
-    if (parseFloat(data.talla) <= parseFloat("0") || !isNaN(data.talla)) {
-        console.info('Se calculara talla');
-        if (parseInt(data.envergadura) > parseInt("0") || isNaN(data.envergadura)) {
-            this.results.talla_calculada = (parseInt(data.envergadura) * parseInt("2"));
-        } else {
-            if (data.genero == "hombre") {
-                if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
-                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.88")) + parseFloat("71.85"));
-                } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
-                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("2.22")) + parseFloat("59.01"));
-                }
-            } else if (data.genero == "mujer") {
-                if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
-                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.86")) - (parseFloat(data.edad) * parseFloat("0.05")) + parseFloat("70.25"));
-                } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
-                    this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.91")) - (parseFloat(data.edad) * parseFloat("0.17")) + parseFloat("75.00"));
-                }
-            }
-        }
-    }
-
-    console.info('Talla calculada: ' + this.results.talla_calculada);
-
-    if (parseFloat(this.results.talla_calculada) > 0) {
-        talla = this.results.talla_calculada;
+    } else if (parseFloat(this.results.ps) > parseFloat("0")) {
+        peso = this.results.ps;
     }
 
     this.results.imc = (parseFloat(peso) / ((parseInt(talla) / parseInt("100")) * (parseInt(talla) / parseInt("100"))));
@@ -132,8 +142,6 @@ export class CalculatorProvider {
     this.results.irn_valor = (((parseFloat("1.519") * parseFloat(data.albumina)) + parseFloat("41.7")) * (parseFloat(peso) / parseFloat(this.results.cpi)));
 
     if (data.genero == "hombre") {
-
-        this.results.ps = (parseFloat(this.results.imc) * parseFloat("24"));
 
         this.results.act = ((parseFloat("2.447") - (parseFloat("0.09516") * parseFloat(data.edad))) + (parseFloat("0.1074") * parseFloat(talla)) + (parseFloat("0.3362") * parseFloat(peso)));
 
@@ -156,8 +164,6 @@ export class CalculatorProvider {
     }
 
     if (data.genero == "mujer") {
-
-        this.results.ps = (parseFloat(this.results.imc) * parseFloat("22"));
 
         this.results.act = ((parseFloat("2.097") - (parseFloat("0.1069") * parseFloat(talla))) + (parseFloat("0.2466") * parseFloat(peso)));
 
