@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 //library for social-sharing
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Clipboard } from '@ionic-native/clipboard';
 
 /**
  * Generated class for the CalculatorModalPage page.
@@ -50,12 +51,14 @@ export class CalculatorModalPage {
    pgc = 0;
    geb = 0;
    ps = 0;
+   log = 'no identificado';
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    private socialSharing: SocialSharing) {
+    private socialSharing: SocialSharing,
+    private clipboard: Clipboard) {
   }
 
   closeModal() {
@@ -81,20 +84,21 @@ export class CalculatorModalPage {
     this.envergadura = this.navParams.get('envergadura');
 
 
-    this.imc = this.navParams.get('imc');
-    this.ppp = this.navParams.get('ppp');
-    this.ec_valor = this.navParams.get('ec_valor');
+    this.imc = isNaN(this.navParams.get('imc')) ? '' : this.navParams.get('imc');
+    this.ppp = isNaN(this.navParams.get('ppp')) ? '' : this.navParams.get('ppp');
+    this.ec_valor = isNaN(this.navParams.get('ec_valor')) ? '' : this.navParams.get('ec_valor');
     this.ec_nombre = this.navParams.get('ec_nombre');
-    this.pieo = this.navParams.get('pieo');
-    this.cmb_valor = this.navParams.get('cmb_valor');
+    this.pieo = isNaN(this.navParams.get('pieo')) ? '' : this.navParams.get('pieo');
+    this.cmb_valor = isNaN(this.navParams.get('cmb_valor')) ? '' : this.navParams.get('cmb_valor');
     this.cmb_nombre = this.navParams.get('cmb_nombre');
-    this.cpi = this.navParams.get('cpi');
-    this.irn_valor = this.navParams.get('irn_valor');
+    this.cpi = isNaN(this.navParams.get('cpi')) ? '' : this.navParams.get('cpi');
+    this.irn_valor = isNaN(this.navParams.get('irn_valor')) ? '' : this.navParams.get('irn_valor');
     this.irn_nombre = this.navParams.get('irn_nombre');
-    this.act = this.navParams.get('act');
-    this.pgc = this.navParams.get('pgc');
-    this.geb = this.navParams.get('geb');
-    this.ps = this.navParams.get('ps');
+    this.act = isNaN(this.navParams.get('act')) ? '' : this.navParams.get('act');
+    this.pgc = isNaN(this.navParams.get('pgc')) ? '' : this.navParams.get('pgc');
+    this.geb = isNaN(this.navParams.get('geb')) ? '' : this.navParams.get('geb');
+    this.ps = isNaN(this.navParams.get('ps')) ? '' : this.navParams.get('ps');
+    this.log = this.navParams.get('log');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 
@@ -132,5 +136,52 @@ whatsappShare(){
    //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
+
+copyPaste(){
+   let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
+
+   msg = msg.concat('*Genero:* ' + this.genero + '\n');
+   msg = msg.concat('*Edad:* ' + this.edad + '\n');
+   msg = msg.concat('*Peso Actual:* ' + this.peso_actual + '\n');
+   msg = msg.concat('*Peso Usual:* ' + this.peso_usual + '\n');
+   msg = msg.concat('*Talla Actual:* ' + this.talla + '\n');
+   msg = msg.concat('*Circunferencia de Carpo:* ' + this.carpo + '\n');
+   msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + '\n');
+   msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + '\n');
+   msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + '\n');
+   msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + '\n');
+   msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + '\n');
+   msg = msg.concat('*Cintura:* ' + this.cintura + '\n');
+   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + '\n');
+
+   msg = msg.concat('\n_Antropometría del paciente_: \n\n');
+
+   msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
+   msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
+   msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
+   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + '\n');
+   msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
+   msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
+   msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
+   msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
+   msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
+   msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
+   msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
+   //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
+
+    this.clipboard.copy(msg);
+
+    this.clipboard.paste().then(
+       (resolve: string) => {
+          alert(resolve);
+        },
+        (reject: string) => {
+          alert('Error: ' + reject);
+        }
+      );
+
+ }
+
 
 }
