@@ -95,6 +95,8 @@ export class CalculatorProvider {
         talla = this.results.talla_calculada;
     }
 
+    console.info('Talla real real: ' + talla);
+
     //
 
     this.results.peso_calculado = 0;
@@ -136,7 +138,7 @@ export class CalculatorProvider {
         peso = this.results.ps;
     }
 
-    this.results.imc = (parseFloat(peso) / ((parseInt(talla) / parseInt("100")) * (parseInt(talla) / parseInt("100"))));
+    this.results.imc = (parseFloat(peso) / ((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))));
     this.results.imc = parseFloat(this.results.imc).toFixed(2);
 
     this.results.ppp = (((parseFloat(data.peso_usual) - parseFloat(peso)) * parseFloat("100") ) / parseFloat(peso));
