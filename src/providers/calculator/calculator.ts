@@ -55,24 +55,34 @@ export class CalculatorProvider {
     this.results.talla_calculada = 0;
 
     console.info('Talla actual: ' + data.talla);
-    console.info(parseFloat(data.talla));
+    console.info('Rodilla actual: ' + data.rodilla);
+    console.info('Envergadura actual: ' + data.envergadura);
+    console.info(isNaN(data.envergadura));
 
     // Recalculamos la talla
-    if (parseFloat(data.talla) <= parseFloat("0") || !isNaN(data.talla)) {
+    if (parseFloat(data.talla) <= parseFloat("0") || isNaN(data.talla) === false) {
         console.info('Se calculara talla');
-        if (parseInt(data.envergadura) > parseInt("0") && isNaN(data.envergadura)) {
+        if (parseInt(data.envergadura) > parseInt("0") && !isNaN(data.envergadura)) {
+            console.info('Calculando talla por envergadura');
             this.results.talla_calculada = (parseInt(data.envergadura) * parseInt("2"));
-        } else if (parseFloat(data.rodilla) > parseFloat("0") && isNaN(data.rodilla)) {
+        } else if (parseFloat(data.rodilla) > parseFloat("0") && !isNaN(data.rodilla)) {
+            console.info('Calculando talla por rodilla');
             if (data.genero == "hombre") {
+                console.info('Calculando talla por rodilla de hombre');
                 if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
+                    console.info('Calculando talla por rodilla de hombre entre 19 y 59');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.88")) + parseFloat("71.85"));
                 } else if (parseInt(data.edad) >= parseInt("60") && parseInt(data.edad) <= parseInt("80")) {
+                    console.info('Calculando talla por rodilla de hombre entre 60 y 80');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("2.22")) + parseFloat("59.01"));
                 }
             } else if (data.genero == "mujer") {
+                console.info('Calculando talla por rodilla de mujer');
                 if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
+                    console.info('Calculando talla por rodilla de mujer entre 19 y 59');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.86")) - (parseFloat(data.edad) * parseFloat("0.05")) + parseFloat("70.25"));
                 } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
+                    console.info('Calculando talla por rodilla de mujer entre 60 y 80');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.91")) - (parseFloat(data.edad) * parseFloat("0.17")) + parseFloat("75"));
                 }
             }
@@ -92,10 +102,10 @@ export class CalculatorProvider {
     let peso = data.peso_actual;
 
     console.info('Peso actual: ' + data.peso_actual);
-    console.info(parseFloat(data.peso_actual));
+    console.info(isNaN(data.peso_actual));
 
     // Recalculamos el peso
-    if (parseFloat(data.peso_actual) <= parseFloat("0") || !isNaN(data.peso_actual)) {
+    if (parseFloat(data.peso_actual) <= parseFloat("0") || isNaN(data.peso_actual) == false) {
         console.info('Se calculara peso');
         if (data.genero == "hombre") {
             if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
