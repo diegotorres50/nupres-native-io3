@@ -23,7 +23,8 @@ export class CalculatorProvider {
         act: 0,
         pgc: 0,
         geb: 0,
-        ps: 0
+        ps: 0,
+        log: ''
   }
 
   constructor() {
@@ -33,6 +34,8 @@ export class CalculatorProvider {
   obtenerResultados(data: any) {
     console.log(data);
     console.log('Intentando hacer el calculo...');
+
+    this.results.log = this.results.log.concat('Inicio el proceso.' + '\n');
 
     // Datos ingresados
     this.results.genero = data.genero;
@@ -62,30 +65,41 @@ export class CalculatorProvider {
     // Recalculamos la talla
     if (parseFloat(data.talla) <= parseFloat("0") || isNaN(data.talla) === false) {
         console.info('Se calculara talla');
+        this.results.log = this.results.log.concat('La talla no fue ingresada.' + '\n');
         if (parseInt(data.envergadura) > parseInt("0") && !isNaN(data.envergadura)) {
             console.info('Calculando talla por envergadura');
+            this.results.log = this.results.log.concat('Se calculara la talla por media envergadura.' + '\n');
             this.results.talla_calculada = (parseInt(data.envergadura) * parseInt("2"));
         } else if (parseFloat(data.rodilla) > parseFloat("0") && !isNaN(data.rodilla)) {
             console.info('Calculando talla por rodilla');
+            this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla.' + '\n');
             if (data.genero == "hombre") {
                 console.info('Calculando talla por rodilla de hombre');
+                this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla para hombre.' + '\n');
                 if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
                     console.info('Calculando talla por rodilla de hombre entre 19 y 59');
+                    this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla para hombre entre 19 y 59.' + '\n');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.88")) + parseFloat("71.85"));
                 } else if (parseInt(data.edad) >= parseInt("60") && parseInt(data.edad) <= parseInt("80")) {
                     console.info('Calculando talla por rodilla de hombre entre 60 y 80');
+                    this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla para hombre entre 60 y 80.' + '\n');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("2.22")) + parseFloat("59.01"));
                 }
             } else if (data.genero == "mujer") {
                 console.info('Calculando talla por rodilla de mujer');
+                this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla para mujer.' + '\n');
                 if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
                     console.info('Calculando talla por rodilla de mujer entre 19 y 59');
+                    this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla para mujer entre 19 y 59.' + '\n');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.86")) - (parseFloat(data.edad) * parseFloat("0.05")) + parseFloat("70.25"));
                 } else if (parseInt(data.edad) >= 60 && parseInt(data.edad) <= 80) {
                     console.info('Calculando talla por rodilla de mujer entre 60 y 80');
+                    this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla para mujer entre 60 y 80.' + '\n');
                     this.results.talla_calculada = ((parseFloat(data.rodilla) * parseFloat("1.91")) - (parseFloat(data.edad) * parseFloat("0.17")) + parseFloat("75"));
                 }
             }
+        } else {
+            this.results.log = this.results.log.concat('No se puede calcular la talla ni por altura de rodilla ni media envergadura.' + '\n');
         }
     }
 
@@ -96,6 +110,8 @@ export class CalculatorProvider {
             talla = this.results.talla_calculada;
         }
     }
+
+    this.results.log = this.results.log.concat('La talla real con la que se realizara los calculos es:' + talla + '\n');
 
     console.info('Talla real real: ' + talla);
 
@@ -111,16 +127,23 @@ export class CalculatorProvider {
     // Recalculamos el peso
     if (parseFloat(data.peso_actual) <= parseFloat("0") || isNaN(data.peso_actual) == false) {
         console.info('Se calculara peso');
+        this.results.log = this.results.log.concat('El peso actual no fue ingresado.' + '\n');
         if (data.genero == "hombre") {
+            this.results.log = this.results.log.concat('Se calculara el peso para hombre.' + '\n');
             if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
+                this.results.log = this.results.log.concat('Se calculara el peso para hombre entre 19 y 59 usando altura de rodilla y circunferencia de brazo.' + '\n');
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.19")) + (parseFloat(data.brazo) * parseFloat("3.21")) - parseFloat("86.82"));
             } else if (parseInt(data.edad) >= parseInt("60") && parseInt(data.edad) <= parseInt("80")) {
+                this.results.log = this.results.log.concat('Se calculara el peso para hombre entre 60 y 80 usando altura de rodilla y circunferencia de brazo.' + '\n');
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.10")) + (parseFloat(data.brazo) * parseFloat("3.07")) - parseFloat("75.81"));
             }
         } else if (data.genero == "mujer") {
+            this.results.log = this.results.log.concat('Se calculara el peso para mujer.' + '\n');
             if (parseInt(data.edad) >= parseInt("19") && parseInt(data.edad) <= parseInt("59")) {
+                this.results.log = this.results.log.concat('Se calculara el peso para mujer entre 19 y 59 usando altura de rodilla y circunferencia de brazo.' + '\n');
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.01")) + (parseFloat(data.brazo) * parseFloat("2.81")) - parseFloat("66.04"));
             } else if (parseInt(data.edad) >= parseInt("60") && parseInt(data.edad) <= parseInt("80")) {
+                this.results.log = this.results.log.concat('Se calculara el peso para mujer entre 60 y 80 usando altura de rodilla y circunferencia de brazo.' + '\n');
                 this.results.peso_calculado = ((parseFloat(data.rodilla) * parseFloat("1.09")) + (parseFloat(data.brazo) * parseFloat("2.68")) - parseFloat("65.51"));
             }
         }
@@ -135,12 +158,17 @@ export class CalculatorProvider {
     console.info('Peso calculado: ' + this.results.peso_calculado);
 
     if (parseFloat(peso) <= parseFloat("0") || isNaN(peso) === false) {
+        this.results.log = this.results.log.concat('El peso actual sera validado.' + '\n');
         if (parseFloat(this.results.peso_calculado) > parseFloat("0")) {
+            this.results.log = this.results.log.concat('El peso actual sera el calculado.' + '\n');
             peso = this.results.peso_calculado;
         } else if (parseFloat(this.results.ps) > parseFloat("0")) {
+            this.results.log = this.results.log.concat('Se calculara el peso usando el peso saludable.' + '\n');
             peso = this.results.ps;
         }
     }
+
+    this.results.log = this.results.log.concat('El peso con que se realizara los calculos es:' + peso + '\n');
 
     this.results.imc = (parseFloat(peso) / ((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))));
     this.results.imc = parseFloat(this.results.imc).toFixed(2);
@@ -240,6 +268,8 @@ export class CalculatorProvider {
     } else if (parseFloat(this.results.irn_valor) < parseFloat("83.5")) {
         this.results.irn_nombre = "grave";
     }
+
+    this.results.log = this.results.log.concat('Finalizo el proceso.' + '\n');
 
     console.log(this.results);
 

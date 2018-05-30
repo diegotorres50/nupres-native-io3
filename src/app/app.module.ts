@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Clipboard } from '@ionic-native/clipboard';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -45,7 +46,8 @@ import { CalculatorProvider } from '../providers/calculator/calculator';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CalculatorProvider,
-    SocialSharing
+    SocialSharing,
+    Clipboard
   ]
 })
 export class AppModule {}
