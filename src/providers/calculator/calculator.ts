@@ -162,6 +162,7 @@ export class CalculatorProvider {
     this.results.ppp = parseFloat(this.results.ppp).toFixed(2);
 
     this.results.ec_valor = ((parseFloat(talla)) / parseFloat(data.carpo));
+    this.results.log = this.results.log.concat('El valor de la estructura corporal es: ' + this.results.ec_valor + ' data la talla: ' + talla + ' y carpo: ' + data.carpo + '\n');
     this.results.ec_valor = parseFloat(this.results.ec_valor).toFixed(2);
 
     this.results.cpi = ((parseFloat("0.75") * (parseFloat(talla) - parseFloat("150"))) + parseFloat("50"));
@@ -179,11 +180,16 @@ export class CalculatorProvider {
         this.results.cmb_valor = (parseFloat(this.results.cmb_valor) * parseFloat("100") / parseFloat("29.3"));
 
         if (parseFloat(this.results.ec_valor) > parseFloat("10.4")) {
+            this.results.log = this.results.log.concat('Hombre de estructura pequena.' + '\n');
             this.results.ec_nombre = "pequeña";
         } else if (parseFloat(this.results.ec_valor) >= parseFloat("9.6") && parseFloat(this.results.ec_valor) <= parseFloat("10.4")) {
+            this.results.log = this.results.log.concat('Hombre de estructura mediana.' + '\n');
             this.results.ec_nombre = "mediana";
         } else if (parseFloat(this.results.ec_valor) < parseFloat("9.6")) {
+            this.results.log = this.results.log.concat('Hombre de estructura grande.' + '\n');
             this.results.ec_nombre = "grande";
+        } else {
+            this.results.log = this.results.log.concat('No se identifico la estructura corporal en el hombre.' + '\n');
         }
     }
 
@@ -196,11 +202,16 @@ export class CalculatorProvider {
         this.results.cmb_valor = (parseFloat(this.results.cmb_valor) * parseFloat("100") / parseFloat("28.5"));
 
         if (parseFloat(this.results.ec_valor) > parseFloat("11")) {
+            this.results.log = this.results.log.concat('Mujer de estructura pequena.' + '\n');
             this.results.ec_nombre = "pequeña";
         } else if (parseFloat(this.results.ec_valor) >= parseFloat("10.1") && parseFloat(this.results.ec_valor) <= parseFloat("11.0")) {
+            this.results.log = this.results.log.concat('Mujer de estructura mediana.' + '\n');
             this.results.ec_nombre = "mediana";
         } else if (parseFloat(this.results.ec_valor) < parseFloat("10.0")) {
+            this.results.log = this.results.log.concat('Mujer de estructura grande.' + '\n');
             this.results.ec_nombre = "grande";
+        } else {
+            this.results.log = this.results.log.concat('No se identifico la estructura corporal en la mujer.' + '\n');
         }
     }
 
