@@ -53,17 +53,16 @@
       <ion-card-content>
         <p *ngIf="peso_calculado"><strong>Peso Estimado: </strong>{{peso_calculado}} kgs</p>
         <p *ngIf="talla_calculada"><strong>Talla Estimada: </strong>{{talla_calculada}} cms</p>
-        <p *ngIf="imc"><strong>Indice de Masa Corporal: </strong>{{imc}}</p>
-        <p *ngIf="ppp"><strong>Porcentaje de Perdida de Peso: </strong>{{ppp}}</p>
+        <p *ngIf="imc"><strong>Indice Masa Corporal: </strong>{{imc}} con {{imc_tipo}}</p>
+        <p *ngIf="ppp"><strong>% Perdida de Peso: </strong>{{ppp}}</p>
         <p *ngIf="ec_valor"><strong>Estructura Corporal: </strong>{{ec_valor}} {{ec_nombre}}</p>
-        <p *ngIf="pieo"><strong>Peso Ideal (Estructura Osea): </strong>{{pieo}}</p>
-        <p *ngIf="act"><strong>Agua Corporal Total: </strong>{{act}}</p>
-        <p *ngIf="pgc"><strong>Procentaje de Grasa Corporal: </strong>{{pgc}}</p>
+        <p *ngIf="pieo"><strong>Peso Ideal (Según Estructura): </strong>{{pieo}}</p>
         <p *ngIf="cpi"><strong>Peso Ideal (Según Talla): </strong>{{cpi}}</p>
         <p *ngIf="ps"><strong>Peso Saludable (Talla): </strong>{{ps}}</p>
         <p *ngIf="cmb_valor"><strong>Circunferencia Muscular del Brazo: </strong>{{cmb_valor}} {{cmb_nombre}}</p>
         <p *ngIf="irn_valor"><strong>Indice de Riesgo Nutricional: </strong>{{irn_valor}} {{irn_nombre}}</p>
-
+        <p *ngIf="act"><strong>Agua Corporal Total: </strong>{{act}}</p>
+        <p *ngIf="pgc"><strong>% Grasa Corporal: </strong>{{pgc}}</p>
 
 
       </ion-card-content>

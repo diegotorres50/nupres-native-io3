@@ -19,6 +19,7 @@ export class CalculatorProvider {
         cmb_nombre: '',
         irn_valor: 0,
         irn_nombre: '',
+        imc_tipo: '',
         cpi: 0,
         act: 0,
         pgc: 0,
@@ -157,6 +158,26 @@ export class CalculatorProvider {
 
     this.results.imc = (parseFloat(peso) / ((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))));
     this.results.imc = parseFloat(this.results.imc).toFixed(2);
+
+    if (parseFloat(this.results.imc) < parseFloat("16.00")) {
+        this.results.imc_tipo = 'infrapeso con delgadez severa';
+    } else if (parseFloat(this.results.imc) >= parseFloat("16.00") && parseFloat(this.results.imc) <= parseFloat("16.99"))  {
+        this.results.imc_tipo = 'infrapeso con delgadez moderada';
+    } else if (parseFloat(this.results.imc) >= parseFloat("17.00") && parseFloat(this.results.imc) <= parseFloat("18.49"))  {
+        this.results.imc_tipo = 'infrapeso con delgadez aceptable';
+    } else if (parseFloat(this.results.imc) >= parseFloat("18.50") && parseFloat(this.results.imc) <= parseFloat("24.99"))  {
+        this.results.imc_tipo = 'peso normal';
+    } else if (parseFloat(this.results.imc) >= parseFloat("25.00") && parseFloat(this.results.imc) <= parseFloat("29.99"))  {
+        this.results.imc_tipo = 'sobrepeso';
+    } else if (parseFloat(this.results.imc) >= parseFloat("30.00") && parseFloat(this.results.imc) <= parseFloat("34.99"))  {
+        this.results.imc_tipo = 'obeso de tipo I';
+    } else if (parseFloat(this.results.imc) >= parseFloat("35.00") && parseFloat(this.results.imc) <= parseFloat("40.00"))  {
+        this.results.imc_tipo = 'obeso de tipo II';
+    } else if (parseFloat(this.results.imc) > parseFloat("40.00"))  {
+        this.results.imc_tipo = 'obeso de tipo III';
+    } else {
+        this.results.log = this.results.log.concat('El tipo de indice de masa corporal no fue hallado.' + '\n');
+    }
 
     this.results.ppp = (((parseFloat(data.peso_usual) - parseFloat(peso)) * parseFloat("100") ) / parseFloat(peso));
     this.results.ppp = parseFloat(this.results.ppp).toFixed(2);

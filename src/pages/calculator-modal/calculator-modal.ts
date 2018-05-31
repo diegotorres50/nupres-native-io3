@@ -47,6 +47,7 @@ export class CalculatorModalPage {
    cpi = 0;
    irn_valor = 0;
    irn_nombre = 'no identificado';
+   imc_tipo = 'no identificado';
    act = 0;
    pgc = 0;
    geb = 0;
@@ -94,6 +95,7 @@ export class CalculatorModalPage {
     this.cpi = isNaN(this.navParams.get('cpi')) ? '' : this.navParams.get('cpi');
     this.irn_valor = isNaN(this.navParams.get('irn_valor')) ? '' : this.navParams.get('irn_valor');
     this.irn_nombre = this.navParams.get('irn_nombre');
+    this.imc_tipo = this.navParams.get('imc_tipo');
     this.act = isNaN(this.navParams.get('act')) ? '' : this.navParams.get('act');
     this.pgc = isNaN(this.navParams.get('pgc')) ? '' : this.navParams.get('pgc');
     this.geb = isNaN(this.navParams.get('geb')) ? '' : this.navParams.get('geb');
@@ -124,7 +126,7 @@ whatsappShare(){
    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
    msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
-   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + '\n');
+   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
    msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
@@ -159,7 +161,7 @@ copyPaste(){
    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
    msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
-   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + '\n');
+   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
    msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
