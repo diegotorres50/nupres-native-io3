@@ -164,7 +164,7 @@ whatsappShare(){
 
 
     msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
-    msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg/día' + '\n');
+    msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
 
    //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
@@ -224,7 +224,7 @@ copyPaste(){
 
 
     msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
-    msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg/día' + '\n');
+    msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
 
 
     this.clipboard.copy(msg);

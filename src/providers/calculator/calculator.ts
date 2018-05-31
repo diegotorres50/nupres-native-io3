@@ -42,7 +42,7 @@ export class CalculatorProvider {
 
     this.results.log = '';
 
-    this.results.log = this.results.log.concat('Inicio el proceso.' + '\n');
+    this.results.log = this.results.log.concat('Iniciando calculos.' + '\n');
 
     // Datos ingresados
     this.results.genero = data.genero;
@@ -110,13 +110,14 @@ export class CalculatorProvider {
     }
 
     if (parseFloat(talla) <= parseFloat("0")) {
+        this.results.log = this.results.log.concat('La talla es <= 0.' + '\n');
         if (parseFloat(this.results.talla_calculada) > parseFloat("0")) {
-            this.results.log = this.results.log.concat('La talla finalmente se ha calculado en: ' + this.results.talla_calculada + '\n');
+            this.results.log = this.results.log.concat('La talla se ha tomado de un estimado en: ' + this.results.talla_calculada + '\n');
             talla = this.results.talla_calculada;
         }
     }
 
-    this.results.log = this.results.log.concat('La talla real con la que se realizara los calculos es:' + talla + '\n');
+    this.results.log = this.results.log.concat('La talla final para hacer calculos es:' + talla + '\n');
 
     let peso = (!isNaN(data.peso_actual) && parseFloat(data.peso_actual) > parseFloat("0")) ? data.peso_actual : 0;
 
@@ -146,15 +147,17 @@ export class CalculatorProvider {
     }
 
     if (data.genero == "hombre") {
+        this.results.log = this.results.log.concat('Calculando peso saludable para hombre.' + '\n');
         this.results.ps = (parseFloat("24") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100")));
     } else if (data.genero == "mujer") {
+        this.results.log = this.results.log.concat('Calculando peso saludable para mujer.' + '\n');
         this.results.ps = (parseFloat("22") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100")));
     }
 
     if (parseFloat(peso) <= parseFloat("0")) {
-        this.results.log = this.results.log.concat('El peso actual sera validado.' + '\n');
+        this.results.log = this.results.log.concat('Validando el peso.' + '\n');
         if (parseFloat(this.results.peso_calculado) > parseFloat("0")) {
-            this.results.log = this.results.log.concat('El peso actual sera el calculado.' + '\n');
+            this.results.log = this.results.log.concat('El peso sera tomado de un calculado estimado.' + '\n');
             peso = this.results.peso_calculado;
         } else if (parseFloat(this.results.ps) > parseFloat("0")) {
             this.results.log = this.results.log.concat('Se calculara el peso usando el peso saludable.' + '\n');
@@ -162,11 +165,13 @@ export class CalculatorProvider {
         }
     }
 
-    this.results.log = this.results.log.concat('El peso con que se realizara los calculos es:' + peso + '\n');
+    this.results.log = this.results.log.concat('El peso final para hacer los calculos es:' + peso + '\n');
 
+    this.results.log = this.results.log.concat('Calculando IMC.' + '\n');
     this.results.imc = (parseFloat(peso) / ((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))));
     this.results.imc = parseFloat(this.results.imc).toFixed(2);
 
+    this.results.log = this.results.log.concat('Identificando tipo de IMC.' + '\n');
     if (parseFloat(this.results.imc) < parseFloat("16.00")) {
         this.results.imc_tipo = 'infrapeso con delgadez severa';
     } else if (parseFloat(this.results.imc) >= parseFloat("16.00") && parseFloat(this.results.imc) <= parseFloat("16.99"))  {
@@ -187,16 +192,20 @@ export class CalculatorProvider {
         this.results.log = this.results.log.concat('El tipo de indice de masa corporal no fue hallado.' + '\n');
     }
 
+    this.results.log = this.results.log.concat('Calculando % perdida de peso.' + '\n');
     this.results.ppp = (((parseFloat(data.peso_usual) - parseFloat(peso)) * parseFloat("100") ) / parseFloat(peso));
     this.results.ppp = parseFloat(this.results.ppp).toFixed(2);
 
     this.results.ec_valor = ((parseFloat(talla)) / parseFloat(data.carpo));
     this.results.log = this.results.log.concat('El valor de la estructura corporal es: ' + this.results.ec_valor + ' data la talla: ' + talla + ' y carpo: ' + data.carpo + '\n');
 
+    this.results.log = this.results.log.concat('Calculando peso ideal por talla.' + '\n');
     this.results.cpi = ((parseFloat("0.75") * (parseFloat(talla) - parseFloat("150"))) + parseFloat("50"));
 
+    this.results.log = this.results.log.concat('Calculando circunferencia muscular de brazo.' + '\n');
     this.results.cmb_valor = (parseFloat(data.brazo) - (parseFloat("0.314") * parseFloat(data.triceps)));
 
+    this.results.log = this.results.log.concat('Calculando IRN.' + '\n');
     this.results.irn_valor = (((parseFloat("1.519") * parseFloat(data.albumina)) + parseFloat("41.7")) * (parseFloat(peso) / parseFloat(this.results.cpi)));
 
     if (data.genero == "hombre") {
@@ -244,18 +253,21 @@ export class CalculatorProvider {
     }
 
     if (this.results.ec_nombre == "pequeña") {
+        this.results.log = this.results.log.concat('Calculando peso ideal para estructura pequeña.' + '\n');
         if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
             this.results.pieo = (((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))) * parseFloat("20"));
         } else if (parseInt(data.edad) >= 60) {
             this.results.pieo = (((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))) * parseFloat("22"));
         }
     } else if (this.results.ec_nombre == "mediana") {
+        this.results.log = this.results.log.concat('Calculando peso ideal para estructura mediana.' + '\n');
         if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
             this.results.pieo = (((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))) * parseFloat("22.5"));
         } else if (parseInt(data.edad) >= 60) {
             this.results.pieo = (((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))) * parseFloat("25"));
         }
     } else if (this.results.ec_nombre == "grande") {
+        this.results.log = this.results.log.concat('Calculando peso ideal para estructura grande.' + '\n');
         if (parseInt(data.edad) >= 19 && parseInt(data.edad) <= 59) {
             this.results.pieo = (((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))) * parseFloat("25"));
         } else if (parseInt(data.edad) >= 60) {
@@ -287,6 +299,7 @@ export class CalculatorProvider {
         this.results.cmb_nombre = "moderado";
     }
 
+    this.results.log = this.results.log.concat('Calculando el tipo de IRN.' + '\n');
     if (parseFloat("97.5") <= parseFloat(this.results.irn_valor) && parseFloat(this.results.irn_valor) < parseFloat("100")) {
         this.results.irn_nombre = "leve";
     } else if (parseFloat("83.5") <= parseFloat(this.results.irn_valor) && parseFloat(this.results.irn_valor) < parseFloat("97.5")) {
@@ -295,6 +308,7 @@ export class CalculatorProvider {
         this.results.irn_nombre = "grave";
     }
 
+    this.results.log = this.results.log.concat('Calculando gasto energetico basal.' + '\n');
     if (data.genero == "hombre") {
         this.results.geb_benedetic_resultado_primario = ((parseFloat("10") * parseFloat(peso)) + (parseFloat("6.25") * parseFloat(talla)) - (parseFloat("5") * parseFloat(data.edad)) + parseFloat("5"));
     } else if (data.genero == "mujer") {
