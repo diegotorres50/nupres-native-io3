@@ -163,7 +163,6 @@ export class CalculatorProvider {
 
     this.results.ec_valor = ((parseFloat(talla)) / parseFloat(data.carpo));
     this.results.log = this.results.log.concat('El valor de la estructura corporal es: ' + this.results.ec_valor + ' data la talla: ' + talla + ' y carpo: ' + data.carpo + '\n');
-    this.results.ec_valor = parseFloat(this.results.ec_valor).toFixed(2);
 
     this.results.cpi = ((parseFloat("0.75") * (parseFloat(talla) - parseFloat("150"))) + parseFloat("50"));
 
@@ -248,6 +247,8 @@ export class CalculatorProvider {
     this.results.irn_valor = parseFloat(this.results.irn_valor).toFixed(2);
 
     this.results.pgc = parseFloat(this.results.pgc).toFixed(2);
+
+    this.results.ec_valor = parseFloat(this.results.ec_valor).toFixed(2);
 
     if (parseFloat(this.results.cmb_valor) >= parseFloat("80") && parseFloat(this.results.cmb_valor) <= parseFloat("90")) {
         this.results.cmb_nombre = "leve";
