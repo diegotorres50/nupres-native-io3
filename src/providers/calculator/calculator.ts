@@ -35,6 +35,8 @@ export class CalculatorProvider {
     console.log(data);
     console.log('Intentando hacer el calculo...');
 
+    this.results.log = '';
+
     this.results.log = this.results.log.concat('Inicio el proceso.' + '\n');
 
     // Datos ingresados
@@ -51,28 +53,23 @@ export class CalculatorProvider {
     this.results.albumina = data.albumina;
     this.results.cintura = data.cintura;
     this.results.envergadura = data.envergadura;
+    this.results.talla_calculada = 0;
+    this.results.peso_calculado = 0;
     //
 
-    let talla = data.talla;
-
-    this.results.talla_calculada = 0;
-
-    console.info('Talla actual: ' + data.talla);
-    console.info('Rodilla actual: ' + data.rodilla);
-    console.info('Envergadura actual: ' + data.envergadura);
-    console.info(isNaN(data.envergadura));
+    let talla = (!isNaN(data.talla) && parseInt(data.talla) > parseInt("0")) ? data.talla : 0;
 
     // Recalculamos la talla
-    if (parseFloat(data.talla) <= parseFloat("0") || isNaN(data.talla) === false) {
+    if (parseFloat(talla) <= parseFloat("0")) {
         console.info('Se calculara talla');
         this.results.log = this.results.log.concat('La talla no fue ingresada.' + '\n');
-        if (parseInt(data.envergadura) > parseInt("0") && !isNaN(data.envergadura)) {
+        if (parseInt(data.envergadura) > parseInt("0")) {
             console.info('Calculando talla por envergadura');
-            this.results.log = this.results.log.concat('Se calculara la talla por media envergadura.' + '\n');
+            this.results.log = this.results.log.concat('Se calculara la talla por media envergadura: ' + parseInt(data.envergadura) + '\n');
             this.results.talla_calculada = (parseInt(data.envergadura) * parseInt("2"));
-        } else if (parseFloat(data.rodilla) > parseFloat("0") && !isNaN(data.rodilla)) {
+        } else if (parseFloat(data.rodilla) > parseFloat("0")) {
             console.info('Calculando talla por rodilla');
-            this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla.' + '\n');
+            this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla: ' + parseFloat(data.rodilla) + '\n');
             if (data.genero == "hombre") {
                 console.info('Calculando talla por rodilla de hombre');
                 this.results.log = this.results.log.concat('Se calculara la talla por altura de rodilla para hombre.' + '\n');
@@ -103,29 +100,19 @@ export class CalculatorProvider {
         }
     }
 
-    console.info('Talla calculada: ' + this.results.talla_calculada);
-
-    if (parseFloat(talla) <= parseFloat("0") || isNaN(talla) === false) {
+    if (parseFloat(talla) <= parseFloat("0")) {
         if (parseFloat(this.results.talla_calculada) > parseFloat("0")) {
+            this.results.log = this.results.log.concat('La talla finalmente se ha calculado en: ' + this.results.talla_calculada + '\n');
             talla = this.results.talla_calculada;
         }
     }
 
     this.results.log = this.results.log.concat('La talla real con la que se realizara los calculos es:' + talla + '\n');
 
-    console.info('Talla real real: ' + talla);
-
-    //
-
-    this.results.peso_calculado = 0;
-
-    let peso = data.peso_actual;
-
-    console.info('Peso actual: ' + data.peso_actual);
-    console.info(isNaN(data.peso_actual));
+    let peso = (!isNaN(data.peso_actual) && parseFloat(data.peso_actual) > parseFloat("0")) ? data.peso_actual : 0;
 
     // Recalculamos el peso
-    if (parseFloat(data.peso_actual) <= parseFloat("0") || isNaN(data.peso_actual) == false) {
+    if (parseFloat(peso) <= parseFloat("0")) {
         console.info('Se calculara peso');
         this.results.log = this.results.log.concat('El peso actual no fue ingresado.' + '\n');
         if (data.genero == "hombre") {
@@ -155,9 +142,7 @@ export class CalculatorProvider {
         this.results.ps = (parseFloat("22") * (parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100")));
     }
 
-    console.info('Peso calculado: ' + this.results.peso_calculado);
-
-    if (parseFloat(peso) <= parseFloat("0") || isNaN(peso) === false) {
+    if (parseFloat(peso) <= parseFloat("0")) {
         this.results.log = this.results.log.concat('El peso actual sera validado.' + '\n');
         if (parseFloat(this.results.peso_calculado) > parseFloat("0")) {
             this.results.log = this.results.log.concat('El peso actual sera el calculado.' + '\n');
