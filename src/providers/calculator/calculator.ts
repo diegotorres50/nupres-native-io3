@@ -184,7 +184,7 @@ export class CalculatorProvider {
         } else if (parseFloat(this.results.ec_valor) >= parseFloat("9.6") && parseFloat(this.results.ec_valor) <= parseFloat("10.4")) {
             this.results.log = this.results.log.concat('Hombre de estructura mediana.' + '\n');
             this.results.ec_nombre = "mediana";
-        } else if (parseFloat(this.results.ec_valor) < parseFloat("9.6")) {
+        } else if (parseFloat(this.results.ec_valor) <= parseFloat("9.6")) {
             this.results.log = this.results.log.concat('Hombre de estructura grande.' + '\n');
             this.results.ec_nombre = "grande";
         } else {
@@ -206,7 +206,7 @@ export class CalculatorProvider {
         } else if (parseFloat(this.results.ec_valor) >= parseFloat("10.1") && parseFloat(this.results.ec_valor) <= parseFloat("11.0")) {
             this.results.log = this.results.log.concat('Mujer de estructura mediana.' + '\n');
             this.results.ec_nombre = "mediana";
-        } else if (parseFloat(this.results.ec_valor) < parseFloat("10.0")) {
+        } else if (parseFloat(this.results.ec_valor) <= parseFloat("10.0")) {
             this.results.log = this.results.log.concat('Mujer de estructura grande.' + '\n');
             this.results.ec_nombre = "grande";
         } else {
