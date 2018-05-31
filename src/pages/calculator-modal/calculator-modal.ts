@@ -4,6 +4,8 @@ import { ViewController } from 'ionic-angular';
 //library for social-sharing
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Clipboard } from '@ionic-native/clipboard';
+import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the CalculatorModalPage page.
@@ -61,7 +63,9 @@ export class CalculatorModalPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     private socialSharing: SocialSharing,
-    private clipboard: Clipboard) {
+    private clipboard: Clipboard,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController) {
   }
 
   closeModal() {
@@ -69,6 +73,26 @@ export class CalculatorModalPage {
   }
 
   ionViewDidLoad() {
+
+    // Alerta
+    //
+    //
+    const confirm = this.alertCtrl.create({
+      title: 'Demo - Nupres',
+      message: 'Esta es una demo de <strong>software para el sector salud.</strong></br></br>Colaboración tecnológica: <strong>Diego Torres</strong></br></br><strong>Contactenos: </strong> diegotorres50@gmail.com',
+      buttons: [
+        {
+          text: 'Entendido',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
+
+    //
+
     // Datos ingresados
     this.genero = this.navParams.get('genero');
     this.edad = this.navParams.get('edad');
@@ -231,7 +255,15 @@ copyPaste(){
 
     this.clipboard.paste().then(
        (resolve: string) => {
-          alert(resolve);
+          //alert(resolve);
+          //
+            const toast = this.toastCtrl.create({
+              message: 'El informe ha sido copiado satisfactoriamente.',
+              duration: 3000,
+              position: 'top'
+            });
+            toast.present();
+          //
         },
         (reject: string) => {
           alert('Error: ' + reject);
