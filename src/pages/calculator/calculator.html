@@ -28,7 +28,7 @@
             <strong>Proporciones y medidas:</strong>
         </ion-card-header>
         <ion-card-content>
-            Por favor indique los datos del cuerpo del paciente...
+            Ingrese datos del paciente y obtenga un resultado completo de la Antropometría para estimar su composición corporal
         </ion-card-content>
     </ion-card>
 
@@ -63,7 +63,7 @@
                 <ion-item>
 
                     <ion-label color="primary" stacked>Edad (años)</ion-label>
-                    <ion-input formControlName="edad" #edad placeholder="Ejemplo: 35 (entre 16 y 120)" type="number" pattern="[0-9]*" min="16" max="120"></ion-input>
+                    <ion-input formControlName="edad" #edad placeholder="Ej: 35" type="number" pattern="[0-9]*" min="16" max="120"></ion-input>
 
                 </ion-item>
 
@@ -75,7 +75,7 @@
                 <ion-item>
                     <ion-label color="primary" stacked>Peso Actual (kg)</ion-label>
 
-                    <ion-input formControlName="peso_actual" #peso_actual placeholder="Ejemplo: 55.5 (entre 0 y 200)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
+                    <ion-input formControlName="peso_actual" #peso_actual placeholder="Ej: 55.5" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
 
                 </ion-item>
 
@@ -103,7 +103,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Peso Usual (kg)</ion-label>
-            <ion-input formControlName="peso_usual" #peso_usual placeholder="Ejemplo: 60.5 (entre 0 y 200)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
+            <ion-input formControlName="peso_usual" #peso_usual placeholder="Ej: 60.5" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
         </ion-item>
 
 
@@ -113,7 +113,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Talla - Tll (cm)</ion-label>
-            <ion-input formControlName="talla" #talla placeholder="Ejemplo: 150.5 (entre 0 y 230)" type="number" pattern="[0-9]*"></ion-input>
+            <ion-input formControlName="talla" #talla placeholder="Ej: 150.5" type="number" pattern="[0-9]*"></ion-input>
         </ion-item>
 
 
@@ -139,7 +139,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Circ. carpo (cm)</ion-label>
-            <ion-input formControlName="carpo" #carpo placeholder="Ejemplo: 15.5 (entre 5 y 40)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
+            <ion-input formControlName="carpo" #carpo placeholder="Ej: 15.5" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
         </ion-item>
 
 
@@ -149,7 +149,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Pl. cutáneo tríceps (ml)</ion-label>
-            <ion-input formControlName="triceps" #triceps placeholder="Ejemplo: 16.5 (entre 0 y 100)" type="number" step="0.01" pattern="[0-9]+([,\.][0-9]+)?"></ion-input>
+            <ion-input formControlName="triceps" #triceps placeholder="Ej: 16.5" type="number" step="0.01" pattern="[0-9]+([,\.][0-9]+)?"></ion-input>
         </ion-item>
 
 
@@ -178,7 +178,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Circ. de brazo (cm)</ion-label>
-            <ion-input formControlName="brazo" #brazo placeholder="Ejemplo: 26.5 (entre 10 y 50)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
+            <ion-input formControlName="brazo" #brazo placeholder="Ej: 26.5" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
         </ion-item>
 
 
@@ -188,7 +188,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Altura rodilla (cm)</ion-label>
-            <ion-input formControlName="rodilla" #rodilla placeholder="Ejemplo: 45.5 (entre 10 y 80)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
+            <ion-input formControlName="rodilla" #rodilla placeholder="Ej: 45.5" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
         </ion-item>
 
 
@@ -228,7 +228,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Circ. pantorrilla (cm)</ion-label>
-            <ion-input formControlName="pantorrilla" #pantorrilla placeholder="Ejemplo 10.5 (entre 10 y 60)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
+            <ion-input formControlName="pantorrilla" #pantorrilla placeholder="Ej 10.5" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
         </ion-item>
 
 
@@ -238,7 +238,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Albumina en suero (ml)</ion-label>
-            <ion-input formControlName="albumina" #albumnina placeholder="Ejemplo: 2.2 (entre 0 y 6)" type="number" step="0.01" pattern="[0-9]+([,\.][0-9]+)?"></ion-input>
+            <ion-input formControlName="albumina" #albumnina placeholder="Ej: 2.2" type="number" step="0.01" pattern="[0-9]+([,\.][0-9]+)?"></ion-input>
         </ion-item>
 
 
@@ -274,7 +274,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Cintura (cm)</ion-label>
-            <ion-input formControlName="cintura" #cintura placeholder="Ejemplo: 30.5 (entre 30 y 300)" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
+            <ion-input formControlName="cintura" #cintura placeholder="Ej: 50.5" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="0.01"></ion-input>
         </ion-item>
 
 
@@ -284,7 +284,7 @@
 
         <ion-item>
             <ion-label color="primary" stacked>Media envergadura (cm)</ion-label>
-            <ion-input formControlName="envergadura" #envergadura placeholder="Ejemplo: 50 (entre 0 y 120)" type="number" step="0.01" pattern="[0-9]*"></ion-input>
+            <ion-input formControlName="envergadura" #envergadura placeholder="Ej: 50" type="number" step="0.01" pattern="[0-9]*"></ion-input>
         </ion-item>
 
 

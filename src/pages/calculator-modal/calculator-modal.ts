@@ -52,6 +52,8 @@ export class CalculatorModalPage {
    pgc = 0;
    geb = 0;
    ps = 0;
+   geb_benedetic_resultado_primario = 0;
+   geb_benedetic_resultado_secundario = 0;
    log = 'no identificado';
 
   constructor(
@@ -85,21 +87,25 @@ export class CalculatorModalPage {
     this.envergadura = this.navParams.get('envergadura');
 
 
-    this.imc = isNaN(this.navParams.get('imc')) ? '' : this.navParams.get('imc');
-    this.ppp = isNaN(this.navParams.get('ppp')) ? '' : this.navParams.get('ppp');
-    this.ec_valor = isNaN(this.navParams.get('ec_valor')) ? '' : this.navParams.get('ec_valor');
+    this.imc = isNaN(this.navParams.get('imc')) ? 0 : this.navParams.get('imc');
+    this.ppp = isNaN(this.navParams.get('ppp')) ? 0 : this.navParams.get('ppp');
+    this.ec_valor = isNaN(this.navParams.get('ec_valor')) ? 0 : this.navParams.get('ec_valor');
     this.ec_nombre = this.navParams.get('ec_nombre');
-    this.pieo = isNaN(this.navParams.get('pieo')) ? '' : this.navParams.get('pieo');
-    this.cmb_valor = isNaN(this.navParams.get('cmb_valor')) ? '' : this.navParams.get('cmb_valor');
+    this.pieo = isNaN(this.navParams.get('pieo')) ? 0 : this.navParams.get('pieo');
+    this.cmb_valor = isNaN(this.navParams.get('cmb_valor')) ? 0 : this.navParams.get('cmb_valor');
     this.cmb_nombre = this.navParams.get('cmb_nombre');
-    this.cpi = isNaN(this.navParams.get('cpi')) ? '' : this.navParams.get('cpi');
-    this.irn_valor = isNaN(this.navParams.get('irn_valor')) ? '' : this.navParams.get('irn_valor');
+    this.cpi = isNaN(this.navParams.get('cpi')) ? 0 : this.navParams.get('cpi');
+    this.irn_valor = isNaN(this.navParams.get('irn_valor')) ? 0 : this.navParams.get('irn_valor');
     this.irn_nombre = this.navParams.get('irn_nombre');
     this.imc_tipo = this.navParams.get('imc_tipo');
-    this.act = isNaN(this.navParams.get('act')) ? '' : this.navParams.get('act');
-    this.pgc = isNaN(this.navParams.get('pgc')) ? '' : this.navParams.get('pgc');
-    this.geb = isNaN(this.navParams.get('geb')) ? '' : this.navParams.get('geb');
-    this.ps = isNaN(this.navParams.get('ps')) ? '' : this.navParams.get('ps');
+    this.act = isNaN(this.navParams.get('act')) ? 0 : this.navParams.get('act');
+    this.pgc = isNaN(this.navParams.get('pgc')) ? 0 : this.navParams.get('pgc');
+    this.geb = isNaN(this.navParams.get('geb')) ? 0 : this.navParams.get('geb');
+    this.ps = isNaN(this.navParams.get('ps')) ? 0 : this.navParams.get('ps');
+
+    this.geb_benedetic_resultado_primario = isNaN(this.navParams.get('geb_benedetic_resultado_primario')) ? 0 : this.navParams.get('geb_benedetic_resultado_primario');
+    this.geb_benedetic_resultado_secundario = isNaN(this.navParams.get('geb_benedetic_resultado_secundario')) ? 0 : this.navParams.get('geb_benedetic_resultado_secundario');
+
     this.log = this.navParams.get('log');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
@@ -121,20 +127,45 @@ whatsappShare(){
    msg = msg.concat('*Cintura:* ' + this.cintura + '\n');
    msg = msg.concat('*Media Envergadura:* ' + this.envergadura + '\n');
 
-   msg = msg.concat('\n_Antropometría del paciente_: \n\n');
+    msg = msg.concat('\n_Antropometría del paciente_: \n\n');
 
-   msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
-   msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
-   msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
-   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
-   msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
-   msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
-   msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
-   msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
-   msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
-   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
-   msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
-   msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
+    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
+
+    msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
+
+    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
+
+    msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
+
+    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
+
+    msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
+
+    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
+
+
+    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
+
+
+
+    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+
+
+     msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
+
+
+
+    msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
+
+
+
+    msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
+
+
+
+    msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
+    msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg/día' + '\n');
+
    //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
@@ -156,21 +187,45 @@ copyPaste(){
    msg = msg.concat('*Cintura:* ' + this.cintura + '\n');
    msg = msg.concat('*Media Envergadura:* ' + this.envergadura + '\n');
 
-   msg = msg.concat('\n_Antropometría del paciente_: \n\n');
+    msg = msg.concat('\n_Antropometría del paciente_: \n\n');
 
-   msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
-   msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
-   msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
-   msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
-   msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
-   msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
-   msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
-   msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
-   msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
-   msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
-   msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
-   msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
-   //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
+    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
+
+    msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
+
+    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
+
+    msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
+
+    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
+
+    msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
+
+    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
+
+
+    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
+
+
+
+    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+
+
+     msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
+
+
+
+    msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
+
+
+
+    msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
+
+
+
+    msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
+    msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg/día' + '\n');
+
 
     this.clipboard.copy(msg);
 
