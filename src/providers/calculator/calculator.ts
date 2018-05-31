@@ -25,6 +25,10 @@ export class CalculatorProvider {
         pgc: 0,
         geb: 0,
         ps: 0,
+        geb_benedetic_resultado_primario: 0,
+        geb_benedetic_resultado_secundario: 0,
+        geb_jeor_resultado_primario: 0,
+        geb_jeor_resultado_secundario: 0,
         log: ''
   }
 
@@ -56,6 +60,10 @@ export class CalculatorProvider {
     this.results.envergadura = data.envergadura;
     this.results.talla_calculada = 0;
     this.results.peso_calculado = 0;
+    this.results.geb_benedetic_resultado_primario = 0;
+    this.results.geb_benedetic_resultado_secundario = 0;
+    this.results.geb_jeor_resultado_primario = 0;
+    this.results.geb_jeor_resultado_secundario = 0;
     //
 
     let talla = (!isNaN(data.talla) && parseInt(data.talla) > parseInt("0")) ? data.talla : 0;
@@ -286,6 +294,18 @@ export class CalculatorProvider {
     } else if (parseFloat(this.results.irn_valor) < parseFloat("83.5")) {
         this.results.irn_nombre = "grave";
     }
+
+    if (data.genero == "hombre") {
+        this.results.geb_benedetic_resultado_primario = ((parseFloat("10") * parseFloat(peso)) + (parseFloat("6.25") * parseFloat(talla)) - (parseFloat("5") * parseFloat(data.edad)) + parseFloat("5"));
+    } else if (data.genero == "mujer") {
+        this.results.geb_benedetic_resultado_primario = ((parseFloat("10") * parseFloat(peso)) + (parseFloat("6.25") * parseFloat(talla)) - (parseFloat("5") * parseFloat(data.edad)) - parseFloat("161"));
+    }
+
+    this.results.geb_benedetic_resultado_secundario = (parseFloat(this.results.geb_benedetic_resultado_primario) / parseFloat(peso));
+
+    this.results.geb_benedetic_resultado_primario = parseFloat(this.results.geb_benedetic_resultado_primario).toFixed(2);
+
+    this.results.geb_benedetic_resultado_secundario = parseFloat(this.results.geb_benedetic_resultado_secundario).toFixed(2);
 
     this.results.log = this.results.log.concat('Finalizo el proceso.' + '\n');
 
