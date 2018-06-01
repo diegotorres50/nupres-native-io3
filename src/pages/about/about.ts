@@ -20,7 +20,7 @@ export class AboutPage {
   }
 
   ionViewDidLoad() {
-  	this.storage.set('intro-done', false);
+  	//this.storage.set('intro-done', false);
     console.log('ionViewDidLoad AboutPage');
   }
 

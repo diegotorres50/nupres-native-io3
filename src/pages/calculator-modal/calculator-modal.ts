@@ -138,41 +138,41 @@ whatsappShare(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
    msg = msg.concat('*Genero:* ' + this.genero + '\n');
-   msg = msg.concat('*Edad:* ' + this.edad + '\n');
-   msg = msg.concat('*Peso Actual:* ' + this.peso_actual + '\n');
-   msg = msg.concat('*Peso Usual:* ' + this.peso_usual + '\n');
-   msg = msg.concat('*Talla Actual:* ' + this.talla + '\n');
-   msg = msg.concat('*Circunferencia de Carpo:* ' + this.carpo + '\n');
-   msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + '\n');
-   msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + '\n');
-   msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + '\n');
-   msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + '\n');
-   msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + '\n');
-   msg = msg.concat('*Cintura:* ' + this.cintura + '\n');
-   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + '\n');
+   msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
+   msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
+   msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
+   msg = msg.concat('*Talla Actual:* ' + this.talla + ' cm' + '\n');
+   msg = msg.concat('*Circunferencia de Carpo:* ' + this.carpo + ' cm' + '\n');
+   msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + ' mm' + '\n');
+   msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + ' cm' + '\n');
+   msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + ' cm' + '\n');
+   msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + ' cm' + '\n');
+   msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + ' mm' + '\n');
+   msg = msg.concat('*Cintura:* ' + this.cintura + ' cm' + '\n');
+   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + ' cm' + '\n');
 
     msg = msg.concat('\n_Antropometría del paciente_: \n\n');
 
-    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
+    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + ' kg' + '\n');
 
-    msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
+    msg = msg.concat('*Peso Saludable:* ' + this.ps + ' kg' + '\n');
 
-    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
+    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + ' cm' + '\n');
 
     msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
 
-    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
+    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + ' kg' + '\n');
 
     msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
 
-    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
+    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + ' kg' + '\n');
 
 
-    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
+    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + ' kg' + '\n');
 
 
 
-    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' cm ' + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
 
 
      msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
@@ -198,41 +198,41 @@ copyPaste(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
    msg = msg.concat('*Genero:* ' + this.genero + '\n');
-   msg = msg.concat('*Edad:* ' + this.edad + '\n');
-   msg = msg.concat('*Peso Actual:* ' + this.peso_actual + '\n');
-   msg = msg.concat('*Peso Usual:* ' + this.peso_usual + '\n');
-   msg = msg.concat('*Talla Actual:* ' + this.talla + '\n');
-   msg = msg.concat('*Circunferencia de Carpo:* ' + this.carpo + '\n');
-   msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + '\n');
-   msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + '\n');
-   msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + '\n');
-   msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + '\n');
-   msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + '\n');
-   msg = msg.concat('*Cintura:* ' + this.cintura + '\n');
-   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + '\n');
+   msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
+   msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
+   msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
+   msg = msg.concat('*Talla Actual:* ' + this.talla + ' cm' + '\n');
+   msg = msg.concat('*Circunferencia de Carpo:* ' + this.carpo + ' cm' + '\n');
+   msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + ' mm' + '\n');
+   msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + ' cm' + '\n');
+   msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + ' cm' + '\n');
+   msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + ' cm' + '\n');
+   msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + ' mm' + '\n');
+   msg = msg.concat('*Cintura:* ' + this.cintura + ' cm' + '\n');
+   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + ' cm' + '\n');
 
     msg = msg.concat('\n_Antropometría del paciente_: \n\n');
 
-    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + '\n');
+    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + ' kg' + '\n');
 
-    msg = msg.concat('*Peso Saludable:* ' + this.ps + '\n');
+    msg = msg.concat('*Peso Saludable:* ' + this.ps + ' kg' + '\n');
 
-    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + '\n');
+    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + ' cm' + '\n');
 
     msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
 
-    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + '\n');
+    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + ' kg' + '\n');
 
     msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
 
-    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + '\n');
+    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + ' kg' + '\n');
 
 
-    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + '\n');
+    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + ' kg' + '\n');
 
 
 
-    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' cm ' + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
 
 
      msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');

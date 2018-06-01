@@ -32,17 +32,17 @@
       <ion-card-content>
         <p *ngIf="genero"><strong>Género: </strong>{{genero}}</p>
         <p *ngIf="edad"><strong>Edad: </strong>{{edad}} años</p>
-        <p *ngIf="peso_actual"><strong>Peso Actual: </strong>{{peso_actual}} kgs</p>
-        <p *ngIf="peso_usual"><strong>Peso Usual: </strong>{{peso_usual}} kgs</p>
-        <p *ngIf="talla"><strong>Talla: </strong>{{talla}} cms</p>
-        <p *ngIf="carpo"><strong>Circunferencia de Carpo: </strong>{{carpo}}</p>
-        <p *ngIf="triceps"><strong>Pliegue Cutáneo de Tríceps: </strong>{{triceps}}</p>
-        <p *ngIf="brazo"><strong>Circunferencia de Brazo: </strong>{{brazo}}</p>
-        <p *ngIf="rodilla"><strong>Altura de rodilla: </strong>{{rodilla}}</p>
-        <p *ngIf="pantorrilla"><strong>Circunferencia de Pantorrilla: </strong>{{pantorrilla}}</p>
-        <p *ngIf="albumina"><strong>Albúmina en Suero: </strong>{{albumina}}</p>
-        <p *ngIf="cintura"><strong>Cintura: </strong>{{cintura}}</p>
-        <p *ngIf="envergadura"><strong>Media Envergadura: </strong>{{envergadura}}</p>
+        <p *ngIf="peso_actual"><strong>Peso Actual: </strong>{{peso_actual}} kg</p>
+        <p *ngIf="peso_usual"><strong>Peso Usual: </strong>{{peso_usual}} kg</p>
+        <p *ngIf="talla"><strong>Talla: </strong>{{talla}} cm</p>
+        <p *ngIf="carpo"><strong>Circunferencia de Carpo: </strong>{{carpo}} cm</p>
+        <p *ngIf="triceps"><strong>Pliegue Cutáneo de Tríceps: </strong>{{triceps}} mm</p>
+        <p *ngIf="brazo"><strong>Circunferencia de Brazo: </strong>{{brazo}} cm</p>
+        <p *ngIf="rodilla"><strong>Altura de rodilla: </strong>{{rodilla}} cm</p>
+        <p *ngIf="pantorrilla"><strong>Circunferencia de Pantorrilla: </strong>{{pantorrilla}} cm</p>
+        <p *ngIf="albumina"><strong>Albúmina en Suero: </strong>{{albumina}} mm</p>
+        <p *ngIf="cintura"><strong>Cintura: </strong>{{cintura}} cm</p>
+        <p *ngIf="envergadura"><strong>Media Envergadura: </strong>{{envergadura}} cm</p>
       </ion-card-content>
     </ion-card>
 
@@ -51,14 +51,14 @@
         <strong>Resultados calculados:</strong>
       </ion-card-header>
       <ion-card-content>
-        <p *ngIf="peso_calculado"><strong>Peso Estimado: </strong>{{peso_calculado}} kgs</p>
-        <p *ngIf="talla_calculada"><strong>Talla Estimada: </strong>{{talla_calculada}} cms</p>
+        <p *ngIf="peso_calculado"><strong>Peso Estimado: </strong>{{peso_calculado}} kg</p>
+        <p *ngIf="talla_calculada"><strong>Talla Estimada: </strong>{{talla_calculada}} cm</p>
         <p *ngIf="imc"><strong>Indice Masa Corporal: </strong>{{imc}} con {{imc_tipo}}</p>
-        <p *ngIf="ppp"><strong>% Perdida de Peso: </strong>{{ppp}}</p>
+        <p *ngIf="ppp"><strong>% Perdida de Peso: </strong>{{ppp}} kg</p>
         <p *ngIf="ec_valor"><strong>Estructura Corporal: </strong>{{ec_valor}} {{ec_nombre}}</p>
-        <p *ngIf="pieo"><strong>Peso Ideal (Según Estructura): </strong>{{pieo}}</p>
-        <p *ngIf="cpi"><strong>Peso Ideal (Según Talla): </strong>{{cpi}}</p>
-        <p *ngIf="ps"><strong>Peso Saludable (Talla): </strong>{{ps}}</p>
+        <p *ngIf="pieo"><strong>Peso Ideal (Según Estructura): </strong>{{pieo}} kg</p>
+        <p *ngIf="cpi"><strong>Peso Ideal (Según Talla): </strong>{{cpi}} kg</p>
+        <p *ngIf="ps"><strong>Peso Saludable (Talla): </strong>{{ps}} kg</p>
         <p *ngIf="cmb_valor"><strong>Circunferencia Muscular del Brazo: </strong>{{cmb_valor}} {{cmb_nombre}}</p>
         <p *ngIf="irn_valor"><strong>Indice de Riesgo Nutricional: </strong>{{irn_valor}} {{irn_nombre}}</p>
 
