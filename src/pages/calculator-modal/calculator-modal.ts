@@ -159,9 +159,9 @@ whatsappShare(){
 
     msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + ' cm' + '\n');
 
-    msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
+    msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' ' + this.imc_tipo + '\n');
 
-    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + ' kg' + '\n');
+    msg = msg.concat('*% Perdida de Peso:* ' + this.ppp + ' %' + '\n');
 
     msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
 
@@ -219,9 +219,9 @@ copyPaste(){
 
     msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + ' cm' + '\n');
 
-    msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' con ' + this.imc_tipo + '\n');
+    msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' ' + this.imc_tipo + '\n');
 
-    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + ' kg' + '\n');
+    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + ' %' + '\n');
 
     msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
 
