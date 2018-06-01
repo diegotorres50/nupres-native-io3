@@ -29,6 +29,7 @@ export class CalculatorProvider {
         geb_benedetic_resultado_secundario: 0,
         geb_jeor_resultado_primario: 0,
         geb_jeor_resultado_secundario: 0,
+        peso_corregido: 0,
         log: ''
   }
 
@@ -64,6 +65,7 @@ export class CalculatorProvider {
     this.results.geb_benedetic_resultado_secundario = 0;
     this.results.geb_jeor_resultado_primario = 0;
     this.results.geb_jeor_resultado_secundario = 0;
+    this.results.peso_corregido = 0;
     //
 
     let talla = (!isNaN(data.talla) && parseInt(data.talla) > parseInt("0")) ? data.talla : 0;
@@ -171,27 +173,6 @@ export class CalculatorProvider {
     this.results.imc = (parseFloat(peso) / ((parseFloat(talla) / parseFloat("100")) * (parseFloat(talla) / parseFloat("100"))));
     this.results.imc = parseFloat(this.results.imc).toFixed(2);
 
-    this.results.log = this.results.log.concat('Identificando tipo de IMC.' + '\n');
-    if (parseFloat(this.results.imc) < parseFloat("16.00")) {
-        this.results.imc_tipo = 'infrapeso con delgadez severa';
-    } else if (parseFloat(this.results.imc) >= parseFloat("16.00") && parseFloat(this.results.imc) <= parseFloat("16.99"))  {
-        this.results.imc_tipo = 'infrapeso con delgadez moderada';
-    } else if (parseFloat(this.results.imc) >= parseFloat("17.00") && parseFloat(this.results.imc) <= parseFloat("18.49"))  {
-        this.results.imc_tipo = 'infrapeso con delgadez aceptable';
-    } else if (parseFloat(this.results.imc) >= parseFloat("18.50") && parseFloat(this.results.imc) <= parseFloat("24.99"))  {
-        this.results.imc_tipo = 'peso normal';
-    } else if (parseFloat(this.results.imc) >= parseFloat("25.00") && parseFloat(this.results.imc) <= parseFloat("29.99"))  {
-        this.results.imc_tipo = 'sobrepeso';
-    } else if (parseFloat(this.results.imc) >= parseFloat("30.00") && parseFloat(this.results.imc) <= parseFloat("34.99"))  {
-        this.results.imc_tipo = 'obeso de tipo I';
-    } else if (parseFloat(this.results.imc) >= parseFloat("35.00") && parseFloat(this.results.imc) <= parseFloat("40.00"))  {
-        this.results.imc_tipo = 'obeso de tipo II';
-    } else if (parseFloat(this.results.imc) > parseFloat("40.00"))  {
-        this.results.imc_tipo = 'obeso de tipo III';
-    } else {
-        this.results.log = this.results.log.concat('El tipo de indice de masa corporal no fue hallado.' + '\n');
-    }
-
     this.results.log = this.results.log.concat('Calculando % perdida de peso.' + '\n');
     this.results.ppp = (((parseFloat(data.peso_usual) - parseFloat(peso)) * parseFloat("100") ) / parseFloat(peso));
     this.results.ppp = parseFloat(this.results.ppp).toFixed(2);
@@ -275,6 +256,33 @@ export class CalculatorProvider {
         }
     }
 
+    this.results.log = this.results.log.concat('Identificando tipo de IMC.' + '\n');
+    if (parseFloat(this.results.imc) < parseFloat("16.00")) {
+        this.results.imc_tipo = 'infrapeso con delgadez severa';
+    } else if (parseFloat(this.results.imc) >= parseFloat("16.00") && parseFloat(this.results.imc) <= parseFloat("16.99"))  {
+        this.results.imc_tipo = 'infrapeso con delgadez moderada';
+    } else if (parseFloat(this.results.imc) >= parseFloat("17.00") && parseFloat(this.results.imc) <= parseFloat("18.49"))  {
+        this.results.imc_tipo = 'infrapeso con delgadez aceptable';
+    } else if (parseFloat(this.results.imc) >= parseFloat("18.50") && parseFloat(this.results.imc) <= parseFloat("24.99"))  {
+        this.results.imc_tipo = 'peso normal';
+    } else if (parseFloat(this.results.imc) >= parseFloat("25.00") && parseFloat(this.results.imc) <= parseFloat("29.99"))  {
+        this.results.imc_tipo = 'sobrepeso';
+    } else if (parseFloat(this.results.imc) >= parseFloat("30.00") && parseFloat(this.results.imc) <= parseFloat("34.99"))  {
+        this.results.imc_tipo = 'obeso de tipo I';
+        this.results.log = this.results.log.concat('Calculando peso corregido para obesidad de tipo de tipo I.' + '\n');
+        this.results.peso_corregido = (parseFloat(this.results.pieo) + ((parseFloat(peso) - parseFloat(this.results.pieo)) * parseFloat("0.25")));
+    } else if (parseFloat(this.results.imc) >= parseFloat("35.00") && parseFloat(this.results.imc) <= parseFloat("40.00"))  {
+        this.results.log = this.results.log.concat('Calculando peso corregido para obesidad de tipo de tipo II.' + '\n');
+        this.results.peso_corregido = (parseFloat(this.results.pieo) + ((parseFloat(peso) - parseFloat(this.results.pieo)) * parseFloat("0.25")));
+        this.results.imc_tipo = 'obeso de tipo II';
+    } else if (parseFloat(this.results.imc) > parseFloat("40.00"))  {
+        this.results.imc_tipo = 'obeso de tipo III';
+        this.results.log = this.results.log.concat('Calculando peso corregido para obesidad de tipo de tipo III.' + '\n');
+        this.results.peso_corregido = (parseFloat(this.results.pieo) + ((parseFloat(peso) - parseFloat(this.results.pieo)) * parseFloat("0.5")));
+    } else {
+        this.results.log = this.results.log.concat('El tipo de indice de masa corporal no fue hallado.' + '\n');
+    }
+
     this.results.pieo = parseFloat(this.results.pieo).toFixed(2);
 
     this.results.cpi = parseFloat(this.results.cpi).toFixed(2);
@@ -290,6 +298,8 @@ export class CalculatorProvider {
     this.results.pgc = parseFloat(this.results.pgc).toFixed(2);
 
     this.results.ec_valor = parseFloat(this.results.ec_valor).toFixed(2);
+
+    this.results.peso_corregido = parseFloat(this.results.peso_corregido).toFixed(2);
 
     if (parseFloat(this.results.cmb_valor) >= parseFloat("80") && parseFloat(this.results.cmb_valor) <= parseFloat("90")) {
         this.results.cmb_nombre = "leve";

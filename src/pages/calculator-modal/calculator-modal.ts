@@ -56,6 +56,7 @@ export class CalculatorModalPage {
    ps = 0;
    geb_benedetic_resultado_primario = 0;
    geb_benedetic_resultado_secundario = 0;
+   peso_corregido = 0;
    log = 'no identificado';
 
   constructor(
@@ -79,7 +80,7 @@ export class CalculatorModalPage {
     //
     const confirm = this.alertCtrl.create({
       title: '¡¡¡Importante!!!',
-      message: 'Esta es una demostración limitada para calcular la antropometría del paciente y se encuentra en fase beta </br></br>Consulte como obtener la versión completa de esta app</br></br>Si desea puede apoyar el desarrollo de <strong>software para el sector salud.</strong></br></br>Ingeniero de Software: <strong>Diego Torres</strong></br></br><strong>Contactar: </strong> diegotorres50@gmail.com',
+      message: 'Esta es una demostración limitada para calcular la <strong>antropometría del paciente</strong> y se encuentra en <strong>fase de pruebas.</strong></br></br>Consulte como obtener la <strong>versión completa de esta app.</strong></br></br>Si desea puede apoyar el desarrollo de <strong>software para el sector salud.</strong></br></br>Ingeniero de Software: <strong>Diego Torres</strong></br></br><strong>Contactar: </strong> diegotorres50@gmail.com',
       buttons: [
         {
           text: 'Entendido',
@@ -130,6 +131,8 @@ export class CalculatorModalPage {
     this.geb_benedetic_resultado_primario = isNaN(this.navParams.get('geb_benedetic_resultado_primario')) ? 0 : this.navParams.get('geb_benedetic_resultado_primario');
     this.geb_benedetic_resultado_secundario = isNaN(this.navParams.get('geb_benedetic_resultado_secundario')) ? 0 : this.navParams.get('geb_benedetic_resultado_secundario');
 
+    this.peso_corregido = isNaN(this.navParams.get('peso_corregido')) ? 0 : this.navParams.get('peso_corregido');
+
     this.log = this.navParams.get('log');
     console.log('ionViewDidLoad CalculatorModalPage');
   }
@@ -165,10 +168,12 @@ whatsappShare(){
 
     msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
 
-    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + ' kg' + '\n');
+    msg = msg.concat('*Peso Ideal Osea (estructura):* ' + this.pieo + ' kg' + '\n');
 
 
-    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + ' kg' + '\n');
+    msg = msg.concat('*Peso Ideal (talla):* ' + this.cpi + ' kg' + '\n');
+
+    msg = msg.concat('*Peso Corregido (obesos):* ' + this.peso_corregido + ' kg' + '\n');
 
 
 
@@ -182,13 +187,14 @@ whatsappShare(){
     msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
 
 
-
-    msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
+    msg = msg.concat('*% Grasa Corporal:* ' + this.pgc + '\n');
 
 
 
     msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
     msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
+
+    msg = msg.concat('\n*Este es un demo desarrollado por Diego Torres diegotorres50@gmail.com*\n\n');
 
    //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
@@ -221,14 +227,16 @@ copyPaste(){
 
     msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' ' + this.imc_tipo + '\n');
 
-    msg = msg.concat('*Porcentaje de Perdida de Peso:* ' + this.ppp + ' %' + '\n');
+    msg = msg.concat('*% Perdida de Peso:* ' + this.ppp + ' %' + '\n');
 
     msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
 
-    msg = msg.concat('*Peso Ideal Osea:* ' + this.pieo + ' kg' + '\n');
+    msg = msg.concat('*Peso Ideal Osea (estructura):* ' + this.pieo + ' kg' + '\n');
 
 
-    msg = msg.concat('*Calculo de Peso Ideal:* ' + this.cpi + ' kg' + '\n');
+    msg = msg.concat('*Peso Ideal (talla):* ' + this.cpi + ' kg' + '\n');
+
+    msg = msg.concat('*Peso Corregido (obesos):* ' + this.peso_corregido + ' kg' + '\n');
 
 
 
@@ -242,13 +250,14 @@ copyPaste(){
     msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
 
 
-
-    msg = msg.concat('*Porcentaje Grasa Corporal:* ' + this.pgc + '\n');
+    msg = msg.concat('*% Grasa Corporal:* ' + this.pgc + '\n');
 
 
 
     msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
     msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
+
+    msg = msg.concat('\n*Este es un demo desarrollado por Diego Torres diegotorres50@gmail.com*\n\n');
 
 
     this.clipboard.copy(msg);
