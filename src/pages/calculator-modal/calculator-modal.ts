@@ -80,7 +80,7 @@ export class CalculatorModalPage {
     //
     const confirm = this.alertCtrl.create({
       title: '¡¡¡Importante!!!',
-      message: 'Esta es una demostración limitada para calcular la <strong>antropometría del paciente</strong> y se encuentra en <strong>fase de pruebas.</strong></br></br>Consulte como obtener la <strong>versión completa de esta app.</strong></br></br>Si desea puede apoyar el desarrollo de <strong>software para el sector salud.</strong></br></br>Ingeniero de Software: <strong>Diego Torres</strong></br></br><strong>Contactar: </strong> diegotorres50@gmail.com',
+      message: 'Esta es una demostración limitada para calcular la <strong>antropometría del paciente</strong> y se encuentra en <strong>fase de pruebas.</strong></br></br>Consulte como obtener la <strong>versión completa de esta app.</strong></br></br>Ingeniero de Software: <strong>Diego Torres</strong></br></br><strong>Contactar: </strong> diegotorres50@gmail.com',
       buttons: [
         {
           text: 'Entendido',
@@ -199,6 +199,99 @@ whatsappShare(){
    //msg = msg.concat('*Gasto Energetico Basal:* ' + this.geb + '\n');
    this.socialSharing.shareViaWhatsApp(msg, null, null);
  }
+
+shareViaMail() {
+   let msg = '_Datos del paciente_: \n\n';
+
+   msg = msg.concat('*Genero:* ' + this.genero + '\n');
+   msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
+   msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
+   msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
+   msg = msg.concat('*Talla Actual:* ' + this.talla + ' cm' + '\n');
+   msg = msg.concat('*Circunferencia de Carpo:* ' + this.carpo + ' cm' + '\n');
+   msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + ' mm' + '\n');
+   msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + ' cm' + '\n');
+   msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + ' cm' + '\n');
+   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + ' cm' + '\n');
+   msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + ' cm' + '\n');
+   msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + ' mm' + '\n');
+   msg = msg.concat('*Cintura:* ' + this.cintura + ' cm' + '\n');
+
+    msg = msg.concat('\n_Antropometría del paciente_: \n\n');
+
+    msg = msg.concat('*Peso Calculado:* ' + this.peso_calculado + ' kg' + '\n');
+
+    msg = msg.concat('*Peso Saludable:* ' + this.ps + ' kg' + '\n');
+
+    msg = msg.concat('*Talla Calculada:* ' + this.talla_calculada + ' cm' + '\n');
+
+    msg = msg.concat('*Indice de Masa Corporal:* ' + this.imc + ' ' + this.imc_tipo + '\n');
+
+    msg = msg.concat('*% Perdida de Peso:* ' + this.ppp + ' %' + '\n');
+
+    msg = msg.concat('*Estructura Corporal:* ' + this.ec_valor + ' de tipo ' + this.ec_nombre +  '\n');
+
+    msg = msg.concat('*Peso Ideal Osea (estructura):* ' + this.pieo + ' kg' + '\n');
+
+
+    msg = msg.concat('*Peso Ideal (talla):* ' + this.cpi + ' kg' + '\n');
+
+    msg = msg.concat('*Peso Corregido (obesos):* ' + this.peso_corregido + ' kg' + '\n');
+
+
+
+    msg = msg.concat('*Circunferencia Muscular del Brazo:* ' + this.cmb_valor + ' cm ' + ' grado de deficit ' + this.cmb_nombre + ' del estandar'  + '\n');
+
+
+     msg = msg.concat('*Indice de Riesgo Nutricional:* ' + this.irn_valor + ' de tipo ' + this.irn_nombre + '\n');
+
+
+
+    msg = msg.concat('*Agua Corporal Total:* ' + this.act + '\n');
+
+
+    msg = msg.concat('*% Grasa Corporal:* ' + this.pgc + '\n');
+
+
+
+    msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
+    msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
+
+    msg = msg.concat('\n*Este es un demo desarrollado por Diego Torres diegotorres50@gmail.com*\n\n');
+
+
+    // Check if sharing via email is supported
+    this.socialSharing.canShareViaEmail().then(() => {
+      // Sharing via email is possible
+    }).catch(() => {
+      // Sharing via email is not possible
+            const toast = this.toastCtrl.create({
+              message: 'No esta disponible el servicio de correo electrónico.',
+              duration: 3000,
+              position: 'top'
+            });
+            toast.present();
+    });
+
+    // Share via email
+    this.socialSharing.shareViaEmail(msg, 'Resultados Calculadora Nupres', ['diegotorres50@gmail.com','alexajs@gmail.com']).then(() => {
+      // Success!
+            const toast = this.toastCtrl.create({
+              message: 'El informe ha sido enviado por correo electrónico.',
+              duration: 3000,
+              position: 'top'
+            });
+            toast.present();
+    }).catch(() => {
+      // Error!
+            const toast = this.toastCtrl.create({
+              message: 'Error el tratar de enviar el mail!!!.',
+              duration: 3000,
+              position: 'top'
+            });
+            toast.present();
+    });
+}
 
 copyPaste(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
