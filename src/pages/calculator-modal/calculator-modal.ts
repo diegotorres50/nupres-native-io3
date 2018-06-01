@@ -79,7 +79,7 @@ export class CalculatorModalPage {
     //
     const confirm = this.alertCtrl.create({
       title: 'Demo - Nupres',
-      message: 'Esta es una demo de <strong>software para el sector salud.</strong></br></br>Colaboración tecnológica: <strong>Diego Torres</strong></br></br><strong>Contactenos: </strong> diegotorres50@gmail.com',
+      message: 'Esta es una demostración limitada para calcular la antropometría del paciente.</br></br>Pregunte por la versión completa y como podría apoyar del desarrollo de <strong>software para el sector salud.</strong></br></br>Ingeniero de Software: <strong>Diego Torres</strong></br></br><strong>Contactar: </strong> diegotorres50@gmail.com',
       buttons: [
         {
           text: 'Entendido',
@@ -146,10 +146,10 @@ whatsappShare(){
    msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + ' mm' + '\n');
    msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + ' cm' + '\n');
    msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + ' cm' + '\n');
+   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + ' cm' + '\n');
    msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + ' cm' + '\n');
    msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + ' mm' + '\n');
    msg = msg.concat('*Cintura:* ' + this.cintura + ' cm' + '\n');
-   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + ' cm' + '\n');
 
     msg = msg.concat('\n_Antropometría del paciente_: \n\n');
 
@@ -206,10 +206,10 @@ copyPaste(){
    msg = msg.concat('*Pliegue Cutáneo de Tríceps:* ' + this.triceps + ' mm' + '\n');
    msg = msg.concat('*Circunferencia de Brazo:* ' + this.brazo + ' cm' + '\n');
    msg = msg.concat('*Altura de Rodilla:* ' + this.rodilla + ' cm' + '\n');
+   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + ' cm' + '\n');
    msg = msg.concat('*Circunferencia de Pantorrilla:* ' + this.pantorrilla + ' cm' + '\n');
    msg = msg.concat('*Albúmina de Suero:* ' + this.albumina + ' mm' + '\n');
    msg = msg.concat('*Cintura:* ' + this.cintura + ' cm' + '\n');
-   msg = msg.concat('*Media Envergadura:* ' + this.envergadura + ' cm' + '\n');
 
     msg = msg.concat('\n_Antropometría del paciente_: \n\n');
 
