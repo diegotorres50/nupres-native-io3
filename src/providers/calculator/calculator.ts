@@ -206,7 +206,7 @@ export class CalculatorProvider {
     this.results.cmb_valor = (parseFloat(data.brazo) - (parseFloat("0.314") * parseFloat(data.triceps)));
 
     this.results.log = this.results.log.concat('Calculando IRN.' + '\n');
-    this.results.irn_valor = ((parseFloat("1.519") * parseFloat(data.albumina)) + ((parseFloat(data.peso_usual) / parseFloat(peso)) * parseFloat("100")));
+    this.results.irn_valor = ((parseFloat("1.519") * parseFloat(data.albumina)) + ((parseFloat(peso) / parseFloat(data.peso_usual)) * parseFloat("100")));
 
     if (data.genero == "hombre") {
 
