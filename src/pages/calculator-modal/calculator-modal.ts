@@ -274,7 +274,7 @@ shareViaMail() {
     });
 
     // Share via email
-    this.socialSharing.shareViaEmail(msg, 'Resultados Calculadora Nupres', ['diegotorres50@gmail.com','alexajs@gmail.com']).then(() => {
+    this.socialSharing.shareViaEmail(msg, 'Resultados Calculadora Nupres', ['diegotorres50@gmail.com','alexajs2003@gmail.com']).then(() => {
       // Success!
             const toast = this.toastCtrl.create({
               message: 'El informe ha sido enviado por correo electrónico.',
