@@ -78,8 +78,8 @@ export class CalculatorModalPage {
     //
     //
     const confirm = this.alertCtrl.create({
-      title: 'Demo - Nupres',
-      message: 'Esta es una demostración limitada para calcular la antropometría del paciente.</br></br>Pregunte por la versión completa y como podría apoyar del desarrollo de <strong>software para el sector salud.</strong></br></br>Ingeniero de Software: <strong>Diego Torres</strong></br></br><strong>Contactar: </strong> diegotorres50@gmail.com',
+      title: '¡¡¡Importante!!!',
+      message: 'Esta es una demostración limitada para calcular la antropometría del paciente y se encuentra en fase beta </br></br>Consulte como obtener la versión completa de esta app</br></br>Si desea puede apoyar el desarrollo de <strong>software para el sector salud.</strong></br></br>Ingeniero de Software: <strong>Diego Torres</strong></br></br><strong>Contactar: </strong> diegotorres50@gmail.com',
       buttons: [
         {
           text: 'Entendido',
