@@ -149,6 +149,7 @@ export class CalculatorPage {
     return this.formBuilder.group({
       genero: ['', [Validators.required]],
       nombre_completo: ['', [Validators.required]],
+      profesional: ['', [Validators.required]],
       edad: ['', [this.minMax1]],
       peso_actual: ['', [this.minMax2]],
       peso_usual: ['', [this.minMax2]],
@@ -161,6 +162,7 @@ export class CalculatorPage {
       albumina: ['', [this.minMax9]],
       cintura: ['', [this.minMax10]],
       envergadura: ['', [this.minMax11]],
+      notas: [''],
       amputacion: this.formBuilder.group({
         amputaciones: [''],
         bilateral: ['']

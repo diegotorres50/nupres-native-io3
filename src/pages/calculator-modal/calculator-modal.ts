@@ -24,6 +24,8 @@ export class CalculatorModalPage {
    // Datos ingresados
    genero = 'no identificado';
    nombre_completo = 'no identificado';
+   profesional = 'no identificado';
+   notas = 'no identificado';
    edad = 0;
    peso_actual = 0;
    peso_usual = 0;
@@ -88,6 +90,13 @@ export class CalculatorModalPage {
           handler: () => {
             console.log('Agree clicked');
           }
+        },      
+        {
+          text: 'Contactar',
+          handler: () => {
+            console.log('Contact clicked');
+            this.socialSharing.shareViaWhatsAppToReceiver('3188149811', 'Hola, estoy usando Nupres!!!', null, null)
+          }
         }
       ]
     });
@@ -98,6 +107,8 @@ export class CalculatorModalPage {
     // Datos ingresados
     this.genero = this.navParams.get('genero');
     this.nombre_completo = this.navParams.get('nombre_completo');
+    this.profesional = this.navParams.get('profesional');
+    this.notas = this.navParams.get('notas');
     this.edad = this.navParams.get('edad');
     this.peso_actual = this.navParams.get('peso_actual');
     this.peso_usual = this.navParams.get('peso_usual');
@@ -143,8 +154,9 @@ export class CalculatorModalPage {
 whatsappShare(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
-   msg = msg.concat('*Genero:* ' + this.genero + '\n');
    msg = msg.concat('*Nombre del paciente:* ' + this.nombre_completo + '\n');
+   msg = msg.concat('*Nombre del profesional:* ' + this.profesional + '\n');
+   msg = msg.concat('*Genero:* ' + this.genero + '\n');
    msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
    msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
    msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
@@ -197,6 +209,8 @@ whatsappShare(){
 
     msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
     msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
+
+    msg = msg.concat('*Notas adicionales:* ' + this.notas + '\n');
 
     msg = msg.concat('\n*Este es un demo desarrollado por Diego Torres diegotorres50@gmail.com*\n\n');
 
@@ -207,8 +221,9 @@ whatsappShare(){
 shareViaMail() {
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
-   msg = msg.concat('*Genero:* ' + this.genero + '\n');
    msg = msg.concat('*Nombre del paciente:* ' + this.nombre_completo + '\n');
+   msg = msg.concat('*Nombre del profesional:* ' + this.profesional + '\n');
+   msg = msg.concat('*Genero:* ' + this.genero + '\n');
    msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
    msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
    msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
@@ -261,6 +276,8 @@ shareViaMail() {
 
     msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
     msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
+
+    msg = msg.concat('*Notas adicionales:* ' + this.notas + '\n');
 
     msg = msg.concat('\n*Este es un demo desarrollado por Diego Torres diegotorres50@gmail.com*\n\n');
 
@@ -301,8 +318,9 @@ shareViaMail() {
 copyPaste(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
-   msg = msg.concat('*Genero:* ' + this.genero + '\n');
    msg = msg.concat('*Nombre del paciente:* ' + this.nombre_completo + '\n');
+   msg = msg.concat('*Nombre del profesional:* ' + this.profesional + '\n');
+   msg = msg.concat('*Genero:* ' + this.genero + '\n');
    msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
    msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
    msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
@@ -355,6 +373,8 @@ copyPaste(){
 
     msg = msg.concat('*Gasto Energetico Basal:* TMB HB (Tasa Metabólica Basal Harris Benedict) de ' + this.geb_benedetic_resultado_primario + ' Kcal/día' + '\n');
     msg = msg.concat('*TMB por el peso:* ' + this.geb_benedetic_resultado_secundario + ' cal/kg de peso/día' + '\n');
+
+    msg = msg.concat('*Notas adicionales:* ' + this.notas + '\n');
 
     msg = msg.concat('\n*Este es un demo desarrollado por Diego Torres diegotorres50@gmail.com*\n\n');
 

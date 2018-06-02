@@ -58,12 +58,22 @@
         <ion-item>
 
         <ion-label color="primary" stacked>Nombre completo del paciente:</ion-label>
-          <ion-input formControlName="nombre_completo" placeholder="Nombre y apellido" type="text"></ion-input>
+          <ion-input formControlName="nombre_completo" placeholder="Ej. Tom Cruise" type="text"></ion-input>
       </ion-item>
 
         <ion-item *ngIf="myForm.get('nombre_completo').errors && myForm.get('nombre_completo').dirty">
           <ion-label color="danger" *ngIf="myForm.get('nombre_completo').hasError('required')">Se requiere el nombre</ion-label>
         </ion-item>
+
+        <ion-item>
+        <ion-label color="primary" stacked>Nombre del profesional que atiende:</ion-label>
+          <ion-input formControlName="profesional" placeholder="Ej. Linda Gordon" type="text"></ion-input>
+      </ion-item>
+
+        <ion-item *ngIf="myForm.get('profesional').errors && myForm.get('profesional').dirty">
+          <ion-label color="danger" *ngIf="myForm.get('profesional').hasError('required')">Se requiere el nombre</ion-label>
+        </ion-item>
+
 
 
           <ion-row>
@@ -340,6 +350,11 @@
           </ion-item>
 
         </div>
+
+  <ion-item>
+    <ion-label color="primary" stacked>Notas adicionales:</ion-label>
+    <ion-textarea formControlName="notas" placeholder="Observaciones opcionales aquí"></ion-textarea>
+  </ion-item>
 
         <button ion-button block type="submit">Calcular</button>
 

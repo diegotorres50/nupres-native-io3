@@ -15,6 +15,8 @@ export class CalculatorProvider {
         ec_valor: 0,
         ec_nombre: '',
         nombre_completo: '',
+        profesional: '',
+        notas: '',
         pieo: 0,
         cmb_valor: 0,
         cmb_nombre: '',
@@ -49,6 +51,8 @@ export class CalculatorProvider {
     // Datos ingresados
     this.results.genero = data.genero;
     this.results.nombre_completo = data.nombre_completo;
+    this.results.profesional = data.profesional;
+    this.results.notas = data.notas;
     this.results.edad = data.edad;
     this.results.peso_actual = data.peso_actual;
     this.results.peso_usual = data.peso_usual;

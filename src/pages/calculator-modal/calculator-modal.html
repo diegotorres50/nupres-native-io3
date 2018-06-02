@@ -32,6 +32,7 @@
       </ion-card-header>
       <ion-card-content>
       	<p *ngIf="nombre_completo"><strong>Nombre del paciente: </strong>{{nombre_completo}}</p>
+      	<p *ngIf="profesional"><strong>Nombre del profesional: </strong>{{profesional}}</p>      	
         <p *ngIf="genero"><strong>Género: </strong>{{genero}}</p>
         <p *ngIf="edad"><strong>Edad: </strong>{{edad}} años</p>
         <p *ngIf="peso_actual"><strong>Peso Actual: </strong>{{peso_actual}} kg</p>
@@ -72,6 +73,15 @@
         <p *ngIf="act"><strong>Agua Corporal Total: </strong>{{act}}</p>
         <p *ngIf="pgc"><strong>% Grasa Corporal: </strong>{{pgc}}</p>
 
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="notas">
+      <ion-card-header color="primary">
+        <strong>Notas adicionales:</strong>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{notas}}</p>
       </ion-card-content>
     </ion-card>
 
