@@ -14,6 +14,7 @@ export class CalculatorProvider {
         ppp: 0,
         ec_valor: 0,
         ec_nombre: '',
+        nombre_completo: '',
         pieo: 0,
         cmb_valor: 0,
         cmb_nombre: '',
@@ -47,6 +48,7 @@ export class CalculatorProvider {
 
     // Datos ingresados
     this.results.genero = data.genero;
+    this.results.nombre_completo = data.nombre_completo;
     this.results.edad = data.edad;
     this.results.peso_actual = data.peso_actual;
     this.results.peso_usual = data.peso_usual;
@@ -333,6 +335,7 @@ export class CalculatorProvider {
 
     this.results.log = this.results.log.concat('Finalizo el proceso.' + '\n');
 
+    console.info('lista de resultados');
     console.log(this.results);
 
     return (this.results);

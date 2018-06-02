@@ -31,6 +31,7 @@
         <strong>Datos básicos ingresados:</strong>
       </ion-card-header>
       <ion-card-content>
+      	<p *ngIf="nombre_completo"><strong>Nombre del paciente: </strong>{{nombre_completo}}</p>
         <p *ngIf="genero"><strong>Género: </strong>{{genero}}</p>
         <p *ngIf="edad"><strong>Edad: </strong>{{edad}} años</p>
         <p *ngIf="peso_actual"><strong>Peso Actual: </strong>{{peso_actual}} kg</p>
