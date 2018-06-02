@@ -148,6 +148,7 @@ export class CalculatorPage {
   private createMyForm(){
     return this.formBuilder.group({
       genero: ['', [Validators.required]],
+      nombre_completo: ['', [Validators.required]],
       edad: ['', [this.minMax1]],
       peso_actual: ['', [this.minMax2]],
       peso_usual: ['', [this.minMax2]],

@@ -23,6 +23,7 @@ export class CalculatorModalPage {
 
    // Datos ingresados
    genero = 'no identificado';
+   nombre_completo = 'no identificado';
    edad = 0;
    peso_actual = 0;
    peso_usual = 0;
@@ -96,6 +97,7 @@ export class CalculatorModalPage {
 
     // Datos ingresados
     this.genero = this.navParams.get('genero');
+    this.nombre_completo = this.navParams.get('nombre_completo');
     this.edad = this.navParams.get('edad');
     this.peso_actual = this.navParams.get('peso_actual');
     this.peso_usual = this.navParams.get('peso_usual');
@@ -134,6 +136,7 @@ export class CalculatorModalPage {
     this.peso_corregido = isNaN(this.navParams.get('peso_corregido')) ? 0 : this.navParams.get('peso_corregido');
 
     this.log = this.navParams.get('log');
+    console.info('el nombres es ' + this.nombre_completo);
     console.log('ionViewDidLoad CalculatorModalPage');
   }
 
@@ -141,6 +144,7 @@ whatsappShare(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
    msg = msg.concat('*Genero:* ' + this.genero + '\n');
+   msg = msg.concat('*Nombre del paciente:* ' + this.nombre_completo + '\n');
    msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
    msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
    msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
@@ -201,9 +205,10 @@ whatsappShare(){
  }
 
 shareViaMail() {
-   let msg = '_Datos del paciente_: \n\n';
+   let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
    msg = msg.concat('*Genero:* ' + this.genero + '\n');
+   msg = msg.concat('*Nombre del paciente:* ' + this.nombre_completo + '\n');
    msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
    msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
    msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
@@ -297,6 +302,7 @@ copyPaste(){
    let msg = '*Resultados Calculadora Nupres* \n\n_Datos del paciente_: \n\n';
 
    msg = msg.concat('*Genero:* ' + this.genero + '\n');
+   msg = msg.concat('*Nombre del paciente:* ' + this.nombre_completo + '\n');
    msg = msg.concat('*Edad:* ' + this.edad + ' años' + '\n');
    msg = msg.concat('*Peso Actual:* ' + this.peso_actual + ' kg' + '\n');
    msg = msg.concat('*Peso Usual:* ' + this.peso_usual + ' kg' + '\n');
